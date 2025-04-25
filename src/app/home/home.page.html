@@ -1,0 +1,36 @@
+<ion-content>
+
+<div class="pink"></div>
+
+<div class="grey"></div>
+
+<div class="blue"></div>
+
+<h2>Platonia</h2>
+
+<h5>Sign In</h5>
+
+<p>Login to your account</p>
+
+<form  #user="ngForm" (ngSubmit) = "onClick(user)">
+
+<ion-item lines="none">
+  <ion-label position="stacked" class="label">&#64; Email</ion-label>
+  <ion-input ngModel class="input" type="email" name="email" required></ion-input>
+</ion-item>
+
+<ion-item lines="none">
+  <ion-label position="stacked" class="label">&#64; Password</ion-label>
+  <ion-input ngModel class="input" type="password" name="password" required></ion-input>
+</ion-item>
+
+
+<div class="sign">
+<ion-button expand="block" type="submit" >Sign In</ion-button>
+</div>
+</form>
+
+<p class="par">Don't Have an account? <a (click)="go()">Register Here</a></p>
+
+
+</ion-content>

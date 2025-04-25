@@ -1,0 +1,47 @@
+<ion-content>
+  <div class="blue"></div>
+
+  <div class="pink"></div>
+
+  <div class="grey"></div>
+
+
+
+  <h2>Platonia</h2>
+
+  <h5>Find The Perfect Hang-out</h5>
+
+  <ion-item>
+    <ion-label>Choose an option</ion-label>
+    <ion-select placeholder="Select One" [(ngModel)]="selectedCategory" (ionChange)="getFeed()">
+      <ion-select-option  *ngFor="let category of categories" value="?category_id={{ category.id }}">{{ category.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <div class="button-container">
+    <ion-button block color="secondary" size="small" (click)="onClickHandler()">
+      Suggested Events
+    </ion-button>
+  </div>
+
+  <ion-card class="card-des" *ngFor="let event of events">
+    <ion-card-header>
+      <ion-card-subtitle>{{ event.planner_name }}</ion-card-subtitle>
+      <ion-card-title>{{ event.event_topic }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ event.event_description }}
+    </ion-card-content>
+    <ion-button class="card-button" (click)="go(event.id)" >View</ion-button>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="center"  slot="fixed">
+
+    <ion-fab-button class="fabular" (click)='add()'>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab>
+
+</ion-content>
