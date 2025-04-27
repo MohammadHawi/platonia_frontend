@@ -1,0 +1,55 @@
+<ion-content>
+
+  <div class="pink"></div>
+
+  <div class="grey"></div>
+  
+  <div class="blue"></div>
+  
+  <h2>Platonia</h2>
+  
+  <h5>Register</h5>
+  
+  <p>Register your account</p>
+
+<form #user="ngForm" (ngSubmit) = "onClick(user)">
+
+  <ion-item lines="none">
+    <ion-label position="stacked" class="label">&#64; Email</ion-label>
+    <ion-input ngModel class="input" type="email" name="email" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label position="stacked" class="label">Password</ion-label>
+    <ion-input ngModel class="input" type="password" name="password" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label position="stacked" class="label">Confirm Password</ion-label>
+    <ion-input ngModel class="input" type="password" name="password_confirmation" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label position="stacked" class="label">Name</ion-label>
+    <ion-input ngModel class="input" type="text" name="name" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label position="stacked" class="label">Age</ion-label>
+    <ion-input ngModel class="input" type="text" name="age" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label position="stacked" class="label">Gender</ion-label>
+    <ion-input ngModel class="input" type="text" name ="gender" required></ion-input>
+  </ion-item>
+
+
+
+  <div class="sign">
+    <ion-button expand="block" type="submit">Register</ion-button>
+    <p class="par">Already Have an account? <a (click)="go()">Sign In</a></p>
+    </div>
+  </form>
+</ion-content>
+

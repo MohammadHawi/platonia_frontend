@@ -1,0 +1,44 @@
+<ion-content>
+  <div class="grey"></div>
+
+  <h2>Platonia</h2>
+
+  <div class="blue"></div>
+  <div class="divvy">
+    <ion-item lines="none">
+      <ion-icon name="person-outline" style="font-size: 27px"></ion-icon>
+      <h5>Profile</h5>
+    </ion-item>
+  </div>
+
+  <ion-item lines="none">
+    <ion-label class="primarylabel">Name:</ion-label>
+    <ion-label class="secondarylabel">{{user.name}}</ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label class="primarylabel">Email:</ion-label>
+    <ion-label class="secondarylabel">{{user.email}}</ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label class="primarylabel">Age:</ion-label>
+    <ion-label class="secondarylabel">{{user.age}}</ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label class="primarylabel">Gender:</ion-label>
+    <ion-label class="secondarylabel">{{user.gender}}</ion-label>
+  </ion-item>
+
+  <ion-label class="primarylabel" style="margin-left: 15px"
+    >Interests:</ion-label
+  ><br />
+  <div class="div-r">
+    <ion-label>{{user.interests}}</ion-label>
+  </div>
+
+  <div class="pink"></div>
+  <ion-button (click)="go()">Edit</ion-button>
+  <div class="green"></div>
+</ion-content>
