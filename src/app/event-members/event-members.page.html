@@ -1,0 +1,27 @@
+<ion-content>
+
+  <div class="pink">
+    <ion-fab-button (click)="go()" size="small" color="dark" style="margin-left: -10px; margin-top: -5px;">
+      <ion-icon name="close-circle-outline" size="large"></ion-icon>
+    </ion-fab-button>
+
+  </div>
+
+
+  <h2>Platonia</h2>
+
+  <div class="green"></div>
+
+  <h5>Event Members</h5>
+
+  <div *ngFor="let member of members.data">
+  <ion-item lines="none">
+    <ion-icon name="person-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="labels, primarylabel">{{member.user.name}}</ion-label>
+    <ion-label class="primarylabel" style="margin-left: -40px;"></ion-label>
+    <ion-button *ngIf="member.user_id != user_id" (click)="removeMember(member.user_id, member.event_id)" class="card-button"  >remove</ion-button>
+  </ion-item>
+</div>
+
+
+</ion-content>

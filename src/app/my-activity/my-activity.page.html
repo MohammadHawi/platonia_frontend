@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="blue"></div>
+
+  <div class="pink"></div>
+
+  <div class="grey"></div>
+
+
+
+  <h2>Platonia</h2>
+
+  <h5>My Hang-outs</h5>
+
+  <ion-card class="card-des" *ngFor="let event of events">
+    <ion-card-header>
+      <ion-card-subtitle>{{ event.planner_name }}</ion-card-subtitle>
+      <ion-card-subtitle>{{ event.event_place }}</ion-card-subtitle>
+      <ion-card-title>{{ event.event_topic }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ event.event_description }}
+    </ion-card-content>
+    <ion-button *ngIf="event.user_id == user_id" class="card-button" (click)="go(event.id)" >View</ion-button>
+  </ion-card>
+
+
+
+</ion-content>
+

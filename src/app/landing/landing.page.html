@@ -26,7 +26,16 @@
 
   <ion-card class="card-des" *ngFor="let event of events">
     <ion-card-header>
-      <ion-card-subtitle>{{ event.planner_name }}</ion-card-subtitle>
+      <!-- <ion-card-subtitle>{{ event.planner_name }}</ion-card-subtitle> -->
+       <ion-card-subtitle>
+        {{ event.planner_name }}
+        <ion-icon
+          name="person-circle-outline"
+          style="font-size: 18px; margin-left: 6px; cursor: pointer;"
+          (click)="goToProfile(event.id)">
+        </ion-icon>
+      </ion-card-subtitle>
+
       <ion-card-title>{{ event.event_topic }}</ion-card-title>
     </ion-card-header>
 

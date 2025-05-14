@@ -47,12 +47,17 @@ export class LandingPage implements OnInit {
     this.router.navigate(['suggested-events']);
   }
 
+  goToProfile(userId: string) {
+  this.router.navigate(['profile-view', userId]);
+}
+
+
   getFeed(event?:any){
     const category_id = this.selectedCategory;
     console.log(category_id);
     this.service.getFeed(category_id).subscribe(response =>{
       this.events=response['data'];
-      console.log(response);
+      console.log('Events:', this.events);
       this.categories=response['categories'];
 
     });

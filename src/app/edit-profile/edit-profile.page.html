@@ -1,0 +1,68 @@
+<ion-content>
+
+
+  <div class="grey">
+    <ion-fab-button (click)="go()" size="small" color="dark" style="margin-top: -5px; margin-left: -6px;" >
+      <ion-icon name="close-circle-outline" size="large"></ion-icon>
+    </ion-fab-button>
+  </div>
+
+
+  <h2>Platonia</h2>
+
+  <div class="blue"></div>
+  <div class="divvy">
+    <ion-item lines="none">
+      <ion-icon name="person-outline" style="font-size:27px;"></ion-icon>
+      <h5>Edit Profile</h5>
+    </ion-item>
+  </div>
+
+
+  <form #user="ngForm" (ngSubmit) = "update(user)">
+    <!-- <input type="hidden" name="id" value="{{userr.id}}">  -->
+    <ion-item lines="none">
+      <ion-label class="primarylabel">Email:</ion-label>
+      <input ngModel type="text" class="short-input" value='{{userr.email}}' name="email" disabled>
+  
+    </ion-item>
+
+  <ion-item lines="none">
+    <ion-label class="primarylabel">Name:</ion-label>
+    <input ngModel  type="text" class="short-input" value='{{userr.name}}' name="name" required>
+
+  </ion-item>
+
+
+
+  <ion-item lines="none">
+    <ion-label class="primarylabel">Age:</ion-label>
+    <input ngModel  type="number" class="small-input" value='{{userr.age}}' name="age" required> 
+
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label class="primarylabel">Gender:</ion-label>
+    <input ngModel  type="text" class="short-input" value='{{userr.gender}}' name="gender" required>
+
+  </ion-item>
+
+
+  <ion-label class="primarylabel" style="margin-left: 15px;">Interests:</ion-label><br>
+
+    <ion-textarea ngModel id="" cols="30" rows="5" class="input-r" name="interests">{{userr.interests}}</ion-textarea>
+
+  
+
+
+
+
+  <div class="pink"></div>
+<div class="center">
+ <ion-button type="submit">Save</ion-button>
+</div>
+</form>
+  <div class="green"></div>
+
+
+</ion-content>

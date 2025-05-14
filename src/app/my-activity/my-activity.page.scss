@@ -1,20 +1,13 @@
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5vh; /* Optionally, set a specific height for the container */
-}
 .pink{
     background-color: #C058E4;
-    width: 55px;
-    height: 55px;
-    border-radius: 55px;
-    padding: 55px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 50px;
     margin: auto;
-    margin-top:-25px;
+    margin-top:-35px;
 
   }
-
   .grey{
     background-color: #C4C4C4;
     width: 70px;
@@ -22,19 +15,19 @@
     border-radius: 70px;
     padding: 70px;
     margin-left: auto;
-    margin-right: -20px;
-    margin-top: -100px;
-
+    margin-right: -35px;
+    margin-top: -90px;
+  
   }
-
+  
   .blue{
     background-color: #17A2F0;
     width: 80px;
     height: 80px;
     border-radius: 80px;
     padding: 80px;
-    margin-left: -40px;
-    margin-top:-50px;
+    margin-left: -50px;
+    margin-top:-60px;
     float: left;
   }
 
@@ -44,7 +37,7 @@
     margin-top: -15px;
     text-align: center;
 
-
+    
   }
 
   h5{
@@ -64,29 +57,19 @@
       --border-color:#5D5FEF;
       color: #5D5FEF;
       margin-left: 170px;
-
+     
   }
 
   .card-des{
       font-family:Poppins-light300 ;
   }
+  
 
-  .fabular{
-    --background: #56B570;
-}
-
-ion-card-subtitle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-
-  @font-face { font-family: Playball;
+  @font-face { font-family: Playball; 
     src: url('../../assets/fonts/Playball-Regular.ttf'); }
-
-  @font-face { font-family: Poppins-SemiBold;
+  
+  @font-face { font-family: Poppins-SemiBold; 
     src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
-
-    @font-face { font-family: Poppins-light300;
+  
+    @font-face { font-family: Poppins-light300; 
       src: url('../../assets/fonts/Poppins-Light.ttf'); }

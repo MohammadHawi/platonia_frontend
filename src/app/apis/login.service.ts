@@ -31,4 +31,8 @@ export class LoginService {
     'gender':user.gender
   });
   }
+  sendResetLink(email: string) {
+  return this.http.post<any>(this.url+'forgot-password', { email });
+}
+
 }

@@ -9,22 +9,34 @@ import { ProfileService } from '../apis/profile.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-user:any=[];
-  constructor(private service : ProfileService, private router:Router) { }
+  user: any = {};
+  followers: any[] = [];
+  following: any[] = [];
 
-  ngOnInit() {
+  constructor(private service: ProfileService, private router: Router) {}
 
-  }
+  ngOnInit() {}
 
-  ionViewDidEnter(){
-    this.service.getUser(localStorage.getItem('user_id')).subscribe(response =>{
-      this.user=response;
-      console.log(this.user);
-      
+  ionViewDidEnter() {
+    const userId = localStorage.getItem('user_id');
+
+    if (!userId) return;
+
+    this.service.getUser(userId).subscribe(response => {
+      this.user = response;
+    });
+
+    this.service.getFollowers(userId).subscribe(res => {
+      this.followers = res.map(f => f.follower); // adjust depending on backend structure
+    });
+
+    this.service.getFollowing(userId).subscribe(res => {
+      this.following = res.map(f => f.following); // adjust depending on backend structure
     });
   }
 
-  go(){
+  go() {
     this.router.navigate(['edit-profile']);
   }
 }
+

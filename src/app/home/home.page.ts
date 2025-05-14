@@ -39,9 +39,10 @@ export class HomePage {
       }
       else if(response['authenticated']==true)
       { 
+
         console.log(response['user'].id)
         localStorage.setItem('user_id',response['user'].id);
-        
+        localStorage.setItem('token', response['token']);
         localStorage.setItem('name',response['user'].name);
 
           this.router.navigate(['/tabs']);
@@ -53,5 +54,9 @@ export class HomePage {
 go(){
   this.router.navigate(['register']);
 }
+goToForgotPassword() {
+  this.router.navigate(['/forgot-password']);
+}
+
 
 }

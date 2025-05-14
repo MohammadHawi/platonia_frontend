@@ -42,3 +42,28 @@
   <ion-button (click)="go()">Edit</ion-button>
   <div class="green"></div>
 </ion-content>
+
+<ion-item lines="none">
+  <ion-label class="primarylabel">Followers:</ion-label>
+  <ion-label class="secondarylabel">{{ followers.length }}</ion-label>
+</ion-item>
+
+<ion-item lines="none">
+  <ion-label class="primarylabel">Following:</ion-label>
+  <ion-label class="secondarylabel">{{ following.length }}</ion-label>
+</ion-item>
+
+<!-- Optional: Show names -->
+<ion-list *ngIf="followers.length > 0">
+  <ion-list-header>Followers</ion-list-header>
+  <ion-item *ngFor="let f of followers">
+    {{ f.name }}
+  </ion-item>
+</ion-list>
+
+<ion-list *ngIf="following.length > 0">
+  <ion-list-header>Following</ion-list-header>
+  <ion-item *ngFor="let f of following">
+    {{ f.name }}
+  </ion-item>
+</ion-list>

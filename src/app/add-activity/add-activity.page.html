@@ -1,0 +1,71 @@
+<ion-content>
+
+  <div class="green">
+    <ion-fab-button (click)='go()' size="small" color="dark" style="margin-top: -5px;">
+      <ion-icon name="close-circle-outline" size="large"></ion-icon>
+    </ion-fab-button>
+
+  </div>
+
+
+  <h2>Platonia</h2>
+
+  <h5>Create Event</h5>
+<br>
+ <form #eventForm="ngForm" (ngSubmit)="publish(eventForm)">
+  <ion-item lines="none">
+    <ion-icon name="person-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="primarylabel">Planner:</ion-label>
+    <ion-label class="secondrylabel" >{{user.name}}</ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon name="body-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="primarylabel">Topic:</ion-label>
+    <input ngModel type="text" class="short-input" name="event_topic" required >
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon name="location-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="primarylabel">Place:</ion-label>
+    <input ngModel type="text" class="short-input" name="event_place" required>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon name="calendar-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="primarylabel">Date:</ion-label>
+    <input ngModel type="date" class="short-input" name="event_date" required>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon name="time-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="primarylabel">Time:</ion-label>
+    <input ngModel type="time" class="short-input" name="event_time" required>
+  </ion-item>
+
+  <div class="floater" style="width: 200px;">
+    <ion-icon name="file-tray-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="primarylabel">Capacity:</ion-label>
+    <input ngModel type="number" class="small-input" name="event_capacity" required>
+  </div>
+
+    <div class="pink"></div>
+
+  <div class="divvy">
+    <ion-label class="deslabel">Description:</ion-label> <br>
+
+      <ion-textarea ngModel name="event_description" id="" cols="30" rows="4" class="input-r" required></ion-textarea>
+  </div>
+
+  <ion-select ngModel name="category_id"  placeholder="Select category" required >
+    <ion-select-option  *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</ion-select-option>
+  </ion-select>
+
+    <div class="grey"></div>
+    <div class="center">
+      <ion-button type="submit" [disabled]="!eventForm.valid">Publish</ion-button>
+
+    </div>
+  </form>
+    <div class="blue"></div>
+</ion-content>

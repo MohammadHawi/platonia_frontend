@@ -11,8 +11,9 @@ export class DashboardService {
   private url = 'http://127.0.0.1:8000/api/';
 
   dashboard(user_id: any) {
-    return this.http.post(this.url + 'dashboard',  {
-    'user_id': user_id
+    return this.http.get(this.url + 'dashboard', {
+      params: { user_id: user_id },
+      
     });
   }
 }

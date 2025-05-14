@@ -24,4 +24,13 @@ export class ProfileService {
     'interests':user.interests
   });
   }
+
+  getFollowers(userId: string) {
+  return this.http.get<any[]>(`${this.url}user/${userId}/followers`);
+}
+
+getFollowing(userId: string) {
+  return this.http.get<any[]>(`${this.url}user/${userId}/following`);
+}
+
 }

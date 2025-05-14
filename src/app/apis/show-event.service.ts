@@ -11,7 +11,7 @@ export class ShowEventService {
   private url ='http://127.0.0.1:8000/api/'
 
   getEvent(id){
-    return this.http.get(this.url+'eventView/' + id);
+    return this.http.get(this.url+'event/' + id);
   }
 
   getUserEvent(id){
@@ -36,21 +36,18 @@ export class ShowEventService {
     return this.http.get(url);
   }
 
-  createEvent(data){
-
-    return this.http.post(this.url+'newEvent',
-    {
-    'user_id':localStorage.getItem('user_id'),
-    'planner_name':localStorage.getItem('name'),
-    'event_topic':data.event_topic,
-    'event_place':data.event_place,
-    'event_date':data.event_date,
-    'event_time':data.event_time,
-    'event_capacity':data.event_capacity,
-    'event_description':data.event_description,
-    'category_id':data.category_id,
-  });
-
+  createEvent(data) {
+    return this.http.post(this.url + 'newEvent', {
+      user_id: parseInt(localStorage.getItem('user_id') || '0', 10),
+      planner_name: localStorage.getItem('name'),
+      event_topic: data.event_topic,
+      event_place: data.event_place,
+      event_date: data.event_date,
+      event_time: data.event_time,
+      event_capacity: data.event_capacity,
+      event_description: data.event_description,
+      category_id: parseInt(data.category_id, 10)
+    });
   }
 
   joinEvent(user_id,event_id){
@@ -63,6 +60,12 @@ export class ShowEventService {
   suggestedEvents(user_id){
     return this.http.post(this.url+'suggested-events',{
       'user_id': user_id,
+    });
+  }
+
+  followUser(userId: string) {
+    return this.http.post(this.url+'follow', {
+      user_id: userId
     });
   }
 }
