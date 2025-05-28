@@ -22,35 +22,28 @@
   <form #user="ngForm" (ngSubmit) = "update(user)">
     <!-- <input type="hidden" name="id" value="{{userr.id}}">  -->
     <ion-item lines="none">
-      <ion-label class="primarylabel">Email:</ion-label>
-      <input ngModel type="text" class="short-input" value='{{userr.email}}' name="email" disabled>
-  
-    </ion-item>
+  <ion-label class="primarylabel">Email:</ion-label>
+  <input [(ngModel)]="userr.email" type="text" class="short-input" name="email" disabled>
+</ion-item>
 
-  <ion-item lines="none">
-    <ion-label class="primarylabel">Name:</ion-label>
-    <input ngModel  type="text" class="short-input" value='{{userr.name}}' name="name" required>
+<ion-item lines="none">
+  <ion-label class="primarylabel">Name:</ion-label>
+  <input [(ngModel)]="userr.name" type="text" class="short-input" name="name" required>
+</ion-item>
 
-  </ion-item>
+<ion-item lines="none">
+  <ion-label class="primarylabel">Age:</ion-label>
+  <input [(ngModel)]="userr.age" type="number" class="small-input" name="age" required>
+</ion-item>
 
+<ion-item lines="none">
+  <ion-label class="primarylabel">Gender:</ion-label>
+  <input [(ngModel)]="userr.gender" type="text" class="short-input" name="gender" required>
+</ion-item>
 
+<ion-label class="primarylabel" style="margin-left: 15px;">Interests:</ion-label><br>
+<ion-textarea [(ngModel)]="userr.interests" class="input-r" name="interests"></ion-textarea>
 
-  <ion-item lines="none">
-    <ion-label class="primarylabel">Age:</ion-label>
-    <input ngModel  type="number" class="small-input" value='{{userr.age}}' name="age" required> 
-
-  </ion-item>
-
-  <ion-item lines="none">
-    <ion-label class="primarylabel">Gender:</ion-label>
-    <input ngModel  type="text" class="short-input" value='{{userr.gender}}' name="gender" required>
-
-  </ion-item>
-
-
-  <ion-label class="primarylabel" style="margin-left: 15px;">Interests:</ion-label><br>
-
-    <ion-textarea ngModel id="" cols="30" rows="5" class="input-r" name="interests">{{userr.interests}}</ion-textarea>
 
   
 

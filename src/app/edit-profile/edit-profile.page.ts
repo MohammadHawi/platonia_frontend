@@ -27,40 +27,36 @@ export class EditProfilePage implements OnInit {
   }
 
   update(form:NgForm){
-    console.log(form.value);
-    this.service.update(form.value).subscribe((response:any)=>{
-      console.log(response);
-      if(response['updated']){
-        this.toaster.create({
-          header: 'Success',
-          message: 'Profile Updated',
-          position: 'top',
-          cssClass: 'my-custom-class',
-          color:'success',
-          duration:2000
-        }).then((obj) => {
-          obj.present();
-        });
-        this.router.navigate(['tabs/profile']);
-      }
+  console.log(this.userr);
+  this.service.update(this.userr).subscribe((response:any)=>{
+    console.log(response);
+    if(response['updated']){
+      this.toaster.create({
+        header: 'Success',
+        message: 'Profile Updated',
+        position: 'top',
+        cssClass: 'my-custom-class',
+        color:'success',
+        duration:2000
+      }).then((obj) => {
+        obj.present();
+      });
+      this.router.navigate(['tabs/profile']);
+    } else {
+      this.toaster.create({
+        header: 'Failure',
+        message: 'fields should have valid input',
+        position: 'top',
+        cssClass: 'my-custom-class',
+        color:'warning',
+        duration:2000
+      }).then((obj) => {
+        obj.present();
+      });
+    }
+  });
+}
 
-      else if(!response['updated']){
-        this.toaster.create({
-          header: 'Failure',
-          message: 'fields should have valid input',
-          position: 'top',
-          cssClass: 'my-custom-class',
-          color:'warning',
-          duration:2000
-        }).then((obj) => {
-          obj.present();
-        });
-        response=null;
-
-
-      }
-    });
-  }
 
   go(){
     this.router.navigate(['tabs/profile']);
