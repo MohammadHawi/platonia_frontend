@@ -12,44 +12,148 @@
   
   <p>Register your account</p>
 
-<form #user="ngForm" (ngSubmit) = "onClick(user)">
+<form #user="ngForm" (ngSubmit)="onClick(user)">
 
   <ion-item lines="none">
     <ion-label position="stacked" class="label">&#64; Email</ion-label>
-    <ion-input ngModel class="input" type="email" name="email" required></ion-input>
+    <ion-input 
+      ngModel 
+      #email="ngModel"
+      class="input" 
+      type="email" 
+      name="email" 
+      required
+      email
+      placeholder="Enter your email">
+    </ion-input>
   </ion-item>
+  <div *ngIf="email.invalid && email.touched" class="error-message">
+    <ion-text color="danger">
+      <small *ngIf="email.errors?.['required']">Email is required</small>
+      <small *ngIf="email.errors?.['email']">Please enter a valid email</small>
+    </ion-text>
+  </div>
 
   <ion-item lines="none">
     <ion-label position="stacked" class="label">Password</ion-label>
-    <ion-input ngModel class="input" type="password" name="password" required></ion-input>
+    <ion-input 
+      ngModel 
+      #password="ngModel"
+      class="input" 
+      type="password" 
+      name="password" 
+      required
+      minlength="8"
+      placeholder="Enter your password">
+    </ion-input>
   </ion-item>
+  <div *ngIf="password.invalid && password.touched" class="error-message">
+    <ion-text color="danger">
+      <small *ngIf="password.errors?.['required']">Password is required</small>
+      <small *ngIf="password.errors?.['minlength']">Password must be at least 8 characters</small>
+    </ion-text>
+  </div>
 
   <ion-item lines="none">
     <ion-label position="stacked" class="label">Confirm Password</ion-label>
-    <ion-input ngModel class="input" type="password" name="password_confirmation" required></ion-input>
+    <ion-input 
+      ngModel 
+      #confirmPassword="ngModel"
+      class="input" 
+      type="password" 
+      name="password_confirmation" 
+      required
+      placeholder="Confirm your password">
+    </ion-input>
   </ion-item>
+  <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="error-message">
+    <ion-text color="danger">
+      <small *ngIf="confirmPassword.errors?.['required']">Please confirm your password</small>
+    </ion-text>
+  </div>
+  <div *ngIf="password.value && confirmPassword.value && password.value !== confirmPassword.value" class="error-message">
+    <ion-text color="danger">
+      <small>Passwords do not match</small>
+    </ion-text>
+  </div>
 
   <ion-item lines="none">
     <ion-label position="stacked" class="label">Name</ion-label>
-    <ion-input ngModel class="input" type="text" name="name" required></ion-input>
+    <ion-input 
+      ngModel 
+      #name="ngModel"
+      class="input" 
+      type="text" 
+      name="name" 
+      required
+      minlength="2"
+      placeholder="Enter your full name">
+    </ion-input>
   </ion-item>
+  <div *ngIf="name.invalid && name.touched" class="error-message">
+    <ion-text color="danger">
+      <small *ngIf="name.errors?.['required']">Name is required</small>
+      <small *ngIf="name.errors?.['minlength']">Name must be at least 2 characters</small>
+    </ion-text>
+  </div>
 
   <ion-item lines="none">
     <ion-label position="stacked" class="label">Age</ion-label>
-    <ion-input ngModel class="input" type="text" name="age" required></ion-input>
+    <ion-input 
+      ngModel 
+      #age="ngModel"
+      class="input" 
+      type="number" 
+      name="age" 
+      required
+      min="13"
+      max="120"
+      placeholder="Enter your age">
+    </ion-input>
   </ion-item>
+  <div *ngIf="age.invalid && age.touched" class="error-message">
+    <ion-text color="danger">
+      <small *ngIf="age.errors?.['required']">Age is required</small>
+      <small *ngIf="age.errors?.['min']">Age must be at least 13</small>
+      <small *ngIf="age.errors?.['max']">Age must be less than 120</small>
+    </ion-text>
+  </div>
 
   <ion-item lines="none">
     <ion-label position="stacked" class="label">Gender</ion-label>
-    <ion-input ngModel class="input" type="text" name ="gender" required></ion-input>
+    <ion-radio-group ngModel name="gender" #gender="ngModel" required>
+      <ion-item lines="none">
+        <ion-radio slot="start" value="male"></ion-radio>
+        <ion-label>Male</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-radio slot="start" value="female"></ion-radio>
+        <ion-label>Female</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-radio slot="start" value="other"></ion-radio>
+        <ion-label>Other</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-radio slot="start" value="prefer_not_to_say"></ion-radio>
+        <ion-label>Prefer not to say</ion-label>
+      </ion-item>
+    </ion-radio-group>
   </ion-item>
-
-
+  <div *ngIf="gender.invalid && gender.touched" class="error-message">
+    <ion-text color="danger">
+      <small *ngIf="gender.errors?.['required']">Please select your gender</small>
+    </ion-text>
+  </div>
 
   <div class="sign">
-    <ion-button expand="block" type="submit">Register</ion-button>
+    <ion-button 
+      expand="block" 
+      type="submit" 
+      [disabled]="user.invalid || (password.value && confirmPassword.value && password.value !== confirmPassword.value)">
+      Register
+    </ion-button>
     <p class="par">Already Have an account? <a (click)="go()">Sign In</a></p>
-    </div>
-  </form>
+  </div>
+</form>
 </ion-content>
-

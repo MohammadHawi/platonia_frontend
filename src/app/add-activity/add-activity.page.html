@@ -1,71 +1,221 @@
 <ion-content>
+  <!-- Background decorative elements -->
+  <div class="background-shapes">
+    <div class="shape shape-green"></div>
+    <div class="shape shape-pink"></div>
+    <div class="shape shape-grey"></div>
+    <div class="shape shape-blue"></div>
+  </div>
 
-  <div class="green">
-    <ion-fab-button (click)='go()' size="small" color="dark" style="margin-top: -5px;">
+  <!-- Header section -->
+  <div class="header-section">
+    <ion-fab-button (click)='go()' size="small" color="dark" class="close-btn">
       <ion-icon name="close-circle-outline" size="large"></ion-icon>
     </ion-fab-button>
-
-  </div>
-
-
-  <h2>Platonia</h2>
-
-  <h5>Create Event</h5>
-<br>
- <form #eventForm="ngForm" (ngSubmit)="publish(eventForm)">
-  <ion-item lines="none">
-    <ion-icon name="person-outline" style="font-size:27px;"></ion-icon>
-    <ion-label class="primarylabel">Planner:</ion-label>
-    <ion-label class="secondrylabel" >{{user.name}}</ion-label>
-  </ion-item>
-
-  <ion-item lines="none">
-    <ion-icon name="body-outline" style="font-size:27px;"></ion-icon>
-    <ion-label class="primarylabel">Topic:</ion-label>
-    <input ngModel type="text" class="short-input" name="event_topic" required >
-  </ion-item>
-
-  <ion-item lines="none">
-    <ion-icon name="location-outline" style="font-size:27px;"></ion-icon>
-    <ion-label class="primarylabel">Place:</ion-label>
-    <input ngModel type="text" class="short-input" name="event_place" required>
-  </ion-item>
-
-  <ion-item lines="none">
-    <ion-icon name="calendar-outline" style="font-size:27px;"></ion-icon>
-    <ion-label class="primarylabel">Date:</ion-label>
-    <input ngModel type="date" class="short-input" name="event_date" required>
-  </ion-item>
-
-  <ion-item lines="none">
-    <ion-icon name="time-outline" style="font-size:27px;"></ion-icon>
-    <ion-label class="primarylabel">Time:</ion-label>
-    <input ngModel type="time" class="short-input" name="event_time" required>
-  </ion-item>
-
-  <div class="floater" style="width: 200px;">
-    <ion-icon name="file-tray-outline" style="font-size:27px;"></ion-icon>
-    <ion-label class="primarylabel">Capacity:</ion-label>
-    <input ngModel type="number" class="small-input" name="event_capacity" required>
-  </div>
-
-    <div class="pink"></div>
-
-  <div class="divvy">
-    <ion-label class="deslabel">Description:</ion-label> <br>
-
-      <ion-textarea ngModel name="event_description" id="" cols="30" rows="4" class="input-r" required></ion-textarea>
-  </div>
-
-  <ion-select ngModel name="category_id"  placeholder="Select category" required >
-    <ion-select-option  *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</ion-select-option>
-  </ion-select>
-
-    <div class="grey"></div>
-    <div class="center">
-      <ion-button type="submit" [disabled]="!eventForm.valid">Publish</ion-button>
-
+    
+    <div class="header-content">
+      <h2 class="app-title">Platonia</h2>
+      <h5 class="page-title">Create Event</h5>
     </div>
-  </form>
-    <div class="blue"></div>
+  </div>
+
+  <!-- Form section -->
+  <div class="form-container">
+    <form #eventForm="ngForm" (ngSubmit)="publish(eventForm)">
+      
+      <!-- Planner Info -->
+      <div class="form-card">
+        <div class="form-item">
+          <div class="input-wrapper">
+            <ion-icon name="person-outline" class="field-icon"></ion-icon>
+            <div class="field-content">
+              <ion-label class="field-label">Planner:</ion-label>
+              <div class="field-value">{{user.name}}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Topic -->
+        <div class="form-item">
+          <div class="input-wrapper">
+            <ion-icon name="body-outline" class="field-icon"></ion-icon>
+            <div class="field-content">
+              <ion-label class="field-label">Topic:</ion-label>
+              <ion-input 
+                ngModel 
+                #topic="ngModel"
+                type="text" 
+                class="custom-input" 
+                name="event_topic" 
+                placeholder="Enter event topic"
+                required>
+              </ion-input>
+            </div>
+          </div>
+          <div *ngIf="topic.invalid && topic.touched" class="error-message">
+            <ion-text color="danger">
+              <small>Topic is required</small>
+            </ion-text>
+          </div>
+        </div>
+
+        <!-- Place -->
+        <div class="form-item">
+          <div class="input-wrapper">
+            <ion-icon name="location-outline" class="field-icon"></ion-icon>
+            <div class="field-content">
+              <ion-label class="field-label">Place:</ion-label>
+              <ion-input 
+                ngModel 
+                #place="ngModel"
+                type="text" 
+                class="custom-input" 
+                name="event_place" 
+                placeholder="Enter event location"
+                required>
+              </ion-input>
+            </div>
+          </div>
+          <div *ngIf="place.invalid && place.touched" class="error-message">
+            <ion-text color="danger">
+              <small>Place is required</small>
+            </ion-text>
+          </div>
+        </div>
+
+        <!-- Date and Time Row -->
+        <div class="date-time-row">
+          <div class="form-item date-item">
+            <div class="input-wrapper">
+              <ion-icon name="calendar-outline" class="field-icon"></ion-icon>
+              <div class="field-content">
+                <ion-label class="field-label">Date:</ion-label>
+                <ion-input 
+                  ngModel 
+                  #date="ngModel"
+                  type="date" 
+                  class="custom-input date-input" 
+                  name="event_date" 
+                  required>
+                </ion-input>
+              </div>
+            </div>
+            <div *ngIf="date.invalid && date.touched" class="error-message">
+              <ion-text color="danger">
+                <small>Date is required</small>
+              </ion-text>
+            </div>
+          </div>
+
+          <div class="form-item time-item">
+            <div class="input-wrapper">
+              <ion-icon name="time-outline" class="field-icon"></ion-icon>
+              <div class="field-content">
+                <ion-label class="field-label">Time:</ion-label>
+                <ion-input 
+                  ngModel 
+                  #time="ngModel"
+                  type="time" 
+                  class="custom-input time-input" 
+                  name="event_time" 
+                  required>
+                </ion-input>
+              </div>
+            </div>
+            <div *ngIf="time.invalid && time.touched" class="error-message">
+              <ion-text color="danger">
+                <small>Time is required</small>
+              </ion-text>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capacity -->
+        <div class="form-item">
+          <div class="input-wrapper">
+            <ion-icon name="people-outline" class="field-icon"></ion-icon>
+            <div class="field-content">
+              <ion-label class="field-label">Capacity:</ion-label>
+              <ion-input 
+                ngModel 
+                #capacity="ngModel"
+                type="number" 
+                class="custom-input capacity-input" 
+                name="event_capacity" 
+                placeholder="Max attendees"
+                min="1"
+                required>
+              </ion-input>
+            </div>
+          </div>
+          <div *ngIf="capacity.invalid && capacity.touched" class="error-message">
+            <ion-text color="danger">
+              <small *ngIf="capacity.errors?.['required']">Capacity is required</small>
+              <small *ngIf="capacity.errors?.['min']">Capacity must be at least 1</small>
+            </ion-text>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description Section -->
+      <div class="form-card">
+        <div class="description-section">
+          <ion-label class="section-title">Description:</ion-label>
+          <ion-textarea 
+            ngModel 
+            #description="ngModel"
+            name="event_description" 
+            class="description-input" 
+            placeholder="Tell people about your event..."
+            rows="4"
+            maxlength="500"
+            counter="true"
+            required>
+          </ion-textarea>
+          <div *ngIf="description.invalid && description.touched" class="error-message">
+            <ion-text color="danger">
+              <small>Description is required</small>
+            </ion-text>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Section -->
+      <div class="form-card">
+        <div class="category-section">
+          <ion-label class="section-title">Category:</ion-label>
+          <ion-select 
+            ngModel 
+            #category="ngModel"
+            name="category_id" 
+            placeholder="Select event category" 
+            class="category-select"
+            interface="popover"
+            required>
+            <ion-select-option *ngFor="let category of categories" value="{{category.id}}">
+              {{category.name}}
+            </ion-select-option>
+          </ion-select>
+          <div *ngIf="category.invalid && category.touched" class="error-message">
+            <ion-text color="danger">
+              <small>Please select a category</small>
+            </ion-text>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="submit-section">
+        <ion-button 
+          type="submit" 
+          expand="block"
+          size="large"
+          class="publish-btn"
+          [disabled]="!eventForm.valid">
+          <ion-icon name="rocket-outline" slot="start"></ion-icon>
+          Publish Event
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>

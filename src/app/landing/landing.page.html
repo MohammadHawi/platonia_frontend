@@ -1,56 +1,139 @@
 <ion-content>
-  <div class="blue"></div>
-
-  <div class="pink"></div>
-
-  <div class="grey"></div>
-
-
-
-  <h2>Platonia</h2>
-
-  <h5>Find The Perfect Hang-out</h5>
-
-  <ion-item>
-    <ion-label>Choose an option</ion-label>
-    <ion-select placeholder="Select One" [(ngModel)]="selectedCategory" (ionChange)="getFeed()">
-      <ion-select-option  *ngFor="let category of categories" value="?category_id={{ category.id }}">{{ category.name }}</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <div class="button-container">
-    <ion-button block color="secondary" size="small" (click)="onClickHandler()">
-      Suggested Events
-    </ion-button>
+  <!-- Background decorative elements -->
+  <div class="background-shapes">
+    <div class="shape shape-blue"></div>
+    <div class="shape shape-pink"></div>
+    <div class="shape shape-grey"></div>
   </div>
 
-  <ion-card class="card-des" *ngFor="let event of events">
-    <ion-card-header>
-      <!-- <ion-card-subtitle>{{ event.planner_name }}</ion-card-subtitle> -->
-       <ion-card-subtitle>
-        {{ event.planner_name }}
-        <ion-icon
-          name="person-circle-outline"
-          style="font-size: 18px; margin-left: 6px; cursor: pointer;"
-          (click)="goToProfile(event.id)">
-        </ion-icon>
-      </ion-card-subtitle>
+  <!-- Header section -->
+  <div class="header-section">
+    <h2 class="app-title">Platonia</h2>
+    <h5 class="page-subtitle">Find The Perfect Hang-out</h5>
+  </div>
 
-      <ion-card-title>{{ event.event_topic }}</ion-card-title>
-    </ion-card-header>
+  <!-- Filter and controls section -->
+  <div class="controls-section">
+    <!-- Category Filter -->
+    <div class="filter-card">
+      <div class="filter-header">
+        <ion-icon name="funnel-outline" class="filter-icon"></ion-icon>
+        <ion-label class="filter-label">Filter by Category</ion-label>
+      </div>
+      <ion-select 
+        placeholder="All Categories" 
+        [(ngModel)]="selectedCategory" 
+        (ionChange)="getFeed()"
+        class="category-select"
+        interface="popover">
+        <ion-select-option value="">All Categories</ion-select-option>
+        <ion-select-option *ngFor="let category of categories" value="?category_id={{ category.id }}">
+          {{ category.name }}
+        </ion-select-option>
+      </ion-select>
+    </div>
 
-    <ion-card-content>
-      {{ event.event_description }}
-    </ion-card-content>
-    <ion-button class="card-button" (click)="go(event.id)" >View</ion-button>
-  </ion-card>
+    <!-- Suggested Events Button -->
+    <div class="suggested-section">
+      <ion-button 
+        expand="block" 
+        fill="outline" 
+        class="suggested-btn"
+        (click)="onClickHandler()">
+        <ion-icon name="sparkles-outline" slot="start"></ion-icon>
+        Suggested Events
+      </ion-button>
+    </div>
+  </div>
 
-  <ion-fab vertical="bottom" horizontal="center"  slot="fixed">
+  <!-- Events List -->
+  <div class="events-container">
+    <!-- Loading State -->
+    <div *ngIf="!events || events.length === 0" class="empty-state">
+      <ion-icon name="calendar-outline" class="empty-icon"></ion-icon>
+      <h3>No events found</h3>
+      <p>Try adjusting your filters or create a new event!</p>
+    </div>
 
-    <ion-fab-button class="fabular" (click)='add()'>
+    <!-- Event Cards -->
+    <ion-card class="event-card" *ngFor="let event of events; let i = index" [style.animation-delay.s]="i * 0.1">
+      <div class="card-header">
+        <div class="planner-info" (click)="goToProfile(event.user_id)">
+          <ion-avatar class="planner-avatar">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </ion-avatar>
+          <div class="planner-details">
+            <ion-card-subtitle class="planner-name">{{ event.planner_name }}</ion-card-subtitle>
+            <span class="planner-label">Event Planner</span>
+          </div>
+        </div>
+        <ion-chip class="event-category" color="primary" outline="true">
+          <ion-icon name="trending-up-outline" size="small"></ion-icon>
+          <ion-label>{{ event.status }}</ion-label>
+        </ion-chip>
+      </div>
+
+      <div class="card-content">
+        <ion-card-title class="event-title">{{ event.event_topic }}</ion-card-title>
+        
+        <div class="event-meta">
+          <div class="meta-item">
+            <ion-icon name="location-outline" class="meta-icon"></ion-icon>
+            <span class="meta-text">{{ event.event_place || 'Location TBA' }}</span>
+          </div>
+          <div class="meta-item">
+            <ion-icon name="calendar-outline" class="meta-icon"></ion-icon>
+            <span class="meta-text">{{ event.event_date || 'Date TBA' }}</span>
+          </div>
+          <div class="meta-item">
+            <ion-icon name="time-outline" class="meta-icon"></ion-icon>
+            <span class="meta-text">{{ event.event_time || 'Time TBA' }}</span>
+          </div>
+          <div class="meta-item">
+            <ion-icon name="people-outline" class="meta-icon"></ion-icon>
+            <span class="meta-text">{{ event.event_capacity || 'Unlimited' }} spots</span>
+          </div>
+        </div>
+
+        <ion-card-content class="event-description">
+          {{ event.event_description }}
+        </ion-card-content>
+      </div>
+
+      <div class="card-actions">
+        <!-- <div class="engagement-stats">
+          <div class="stat-item">
+            <ion-icon name="heart-outline" class="stat-icon"></ion-icon>
+            <span class="stat-count">0</span>
+          </div>
+          <div class="stat-item">
+            <ion-icon name="chatbubble-outline" class="stat-icon"></ion-icon>
+            <span class="stat-count">0</span>
+          </div>
+        </div> -->
+        <ion-button 
+          class="view-btn" 
+          fill="solid"
+          size="small"
+          (click)="go(event.id)">
+          <ion-icon name="eye-outline" slot="start"></ion-icon>
+          View Details
+        </ion-button>
+      </div>
+    </ion-card>
+  </div>
+
+  <!-- Floating Action Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="create-fab" (click)='add()'>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-
   </ion-fab>
 
+  <!-- Refresh Button -->
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button class="refresh-fab" size="small" (click)="getFeed()">
+      <ion-icon name="refresh-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

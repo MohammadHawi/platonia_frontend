@@ -1,116 +1,373 @@
-ion-content{
-    --overflow: hidden;
+/* Import fonts */
+@font-face { 
+  font-family: 'Playball'; 
+  src: url('../../assets/fonts/Playball-Regular.ttf'); 
 }
-ion-item{
-    --display: flex;
-    --align-items: center;
+
+@font-face { 
+  font-family: 'Poppins'; 
+  src: url('../../assets/fonts/Poppins-SemiBold.ttf'); 
+  font-weight: 600;
 }
-.pink{
-    background-color: #C058E4;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    padding: 50px;
-    margin-left: -60px;
-    float: left;
 
+@font-face { 
+  font-family: 'Poppins'; 
+  src: url('../../assets/fonts/Poppins-Light.ttf'); 
+  font-weight: 300;
+}
+
+/* Main content styling */
+ion-content {
+  --background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --overflow: auto;
+  height: 100vh;
+}
+
+/* Header Section */
+.header-section {
+  position: relative;
+  padding: 40px 20px 20px 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+/* Decorative Elements */
+.decoration {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 6s ease-in-out infinite;
+}
+
+.decoration-grey {
+  background: linear-gradient(135deg, #C4C4C4, #E0E0E0);
+  width: 100px;
+  height: 100px;
+  top: -30px;
+  left: -40px;
+  box-shadow: 0 10px 36px rgba(196, 196, 196, 0.3);
+  animation-delay: 0s;
+}
+
+.decoration-blue {
+  background: linear-gradient(135deg, #17A2F0, #4FC3F7);
+  width: 120px;
+  height: 120px;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 12px 40px rgba(23, 162, 240, 0.3);
+  animation-delay: -2s;
+}
+
+.decoration-pink {
+  background: linear-gradient(135deg, #C058E4, #E478A7);
+  width: 80px;
+  height: 80px;
+  bottom: 120px;
+  left: -20px;
+  box-shadow: 0 8px 32px rgba(192, 88, 228, 0.3);
+  animation-delay: -4s;
+}
+
+.decoration-green {
+  background: linear-gradient(135deg, #56B570, #7CB584);
+  width: 90px;
+  height: 90px;
+  bottom: 40px;
+  right: -30px;
+  box-shadow: 0 9px 34px rgba(86, 181, 112, 0.3);
+  animation-delay: -1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+/* Title */
+.title-container {
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.app-title {
+  font-family: 'Playball', cursive;
+  font-size: 36px;
+  color: #333;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title-underline {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C058E4, #56B570);
+  margin: 8px auto 16px auto;
+  border-radius: 2px;
+}
+
+.page-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Profile Container */
+.profile-container {
+  padding: 0 16px 100px 16px;
+}
+
+/* Profile Card */
+.profile-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  margin-bottom: 16px;
+  padding: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .grey{
-    background-color: #C4C4C4;
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    padding: 60px;
-    margin-left: -35px;
-    margin-top: -35px;
-    float: left;
+}
 
+.card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #C058E4, #E478A7);
+}
 
+.card-header {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-badge {
+  background: rgba(192, 88, 228, 0.1);
+  color: #C058E4;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-badge ion-icon {
+  font-size: 16px;
+}
+
+.card-body {
+  padding: 16px 20px;
+}
+
+.profile-details {
+  margin-bottom: 24px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  background: rgba(192, 88, 228, 0.05);
+  transform: translateX(4px);
+}
+
+.detail-icon {
+  font-size: 20px;
+  color: #666;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+
+.detail-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Interests Section */
+.interests-section {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-icon {
+  font-size: 18px;
+  color: #C058E4;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.interests-description {
+  background: rgba(245, 247, 250, 0.8);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.description-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.card-footer {
+  padding: 0 20px 20px 20px;
+}
+
+.edit-button {
+  --color: #5D5FEF;
+  --border-color: #5D5FEF;
+  --border-width: 2px;
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+  float: right;
+  transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+  --background: rgba(93, 95, 239, 0.1);
+  transform: translateY(-2px);
+}
+
+.edit-button ion-icon {
+  font-size: 18px;
+}
+
+/* Card Hover Effect */
+.profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Custom Scrollbar */
+ion-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+ion-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+ion-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #5D5FEF, #C058E4);
+  border-radius: 3px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 0 12px 100px 12px;
+  }
   
+  .profile-card {
+    margin-bottom: 12px;
   }
   
-  .blue{
-    background-color: #17A2F0;
-    width: 80px;
-    height: 80px;
-    border-radius: 80px;
-    padding: 80px;
-    margin-left: auto;
-    margin-right: -90px;
-    margin-top: -50px;
-
-  }
-
-  .green{
-    background-color: #56B570;
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
-    padding: 70px;
-    margin-left: auto;
-    margin-right: -60px;
-
-  }
-
-  h2{
-    font-family: Playball;
+  .app-title {
     font-size: 30px;
-    margin-left: 10px;
-    float: left;
   }
-
-  h5{
-    font-family: Poppins-SemiBold;
-    font-size: 15px;
-    margin-left: 10px;
+  
+  .detail-item {
+    gap: 12px;
+    padding: 8px;
   }
-
-
-.primarylabel{
-    font-family: Poppins-light300;
-    font-size: 15px;
-    font-weight: 400;
-}
-
-.secondarylabel{
-    font-family: Poppins-light300;
-    font-size: 15px;
-    font-weight: 400;
-    margin-left: -80px;
-}
-
-.divvy{
-
-    justify-content: center;
-    display: flex;
-    margin-top: -25px;
-}
-
-.div-r{
-    width: 240px;
-    height: 90px;
-    overflow-y: scroll;
-    font-family: Poppins-light300;
-    font-size: 15px;
-    font-weight: 400;
-    margin-left: auto;
-    margin-right: 0px;
-    margin-top: 8px;
-}
-
-ion-button{
-    --background: #5D5FEF;
-    font-size: 12px;
-    --border-radius: 12px;
-    margin-left: 90px;
-    margin-top: 4px;
-    
-}
-  @font-face { font-family: Playball; 
-    src: url('../../assets/fonts/Playball-Regular.ttf'); }
   
-  @font-face { font-family: Poppins-SemiBold; 
-    src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
-  
-    @font-face { font-family: Poppins-light300; 
-      src: url('../../assets/fonts/Poppins-Light.ttf'); }
+  .detail-text {
+    font-size: 14px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .decoration,
+  .detail-item,
+  .edit-button,
+  .profile-card {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus states for better accessibility */
+.edit-button:focus-visible {
+  outline: 2px solid #5D5FEF;
+  outline-offset: 2px;
+}
+
+.detail-item:focus-within {
+  background: rgba(192, 88, 228, 0.08);
+  outline: 1px solid #C058E4;
+}

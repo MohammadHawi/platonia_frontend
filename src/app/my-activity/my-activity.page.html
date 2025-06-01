@@ -1,30 +1,73 @@
 <ion-content>
-  <div class="blue"></div>
+  <!-- Header Section with Decorative Elements -->
+  <div class="header-section">
+    <!-- Decorative Elements -->
+    <div class="decoration decoration-blue"></div>
+    <div class="decoration decoration-pink"></div>
+    <div class="decoration decoration-grey"></div>
+    
+    <!-- App Title -->
+    <div class="title-container">
+      <h1 class="app-title">Platonia</h1>
+      <div class="title-underline"></div>
+      <h2 class="page-subtitle">My Hang-outs</h2>
+    </div>
+  </div>
 
-  <div class="pink"></div>
+  <!-- Events List -->
+  <div class="events-container">
+    <!-- Empty State (when no events) -->
+    <div class="empty-state" *ngIf="events?.length === 0">
+      <div class="empty-icon">
+        <ion-icon name="calendar-outline"></ion-icon>
+      </div>
+      <h3 class="empty-title">No hang-outs yet</h3>
+      <p class="empty-description">Start planning your first event to see it here!</p>
+    </div>
 
-  <div class="grey"></div>
+    <!-- Event Cards -->
+    <div class="event-card" *ngFor="let event of events; let i = index" [style.animation-delay]="i * 0.1 + 's'">
+      <div class="card-header">
+        <div class="event-badge" [class.owner-badge]="event.user_id == user_id">
+          <ion-icon [name]="event.user_id == user_id ? 'star' : 'people'"></ion-icon>
+          <span>{{ event.user_id == user_id ? 'My Event' : 'Joined' }}</span>
+        </div>
+        <div class="event-topic">{{ event.event_topic }}</div>
+      </div>
 
+      <div class="card-body">
+        <div class="event-details">
+          <div class="detail-item">
+            <ion-icon name="person-circle-outline" class="detail-icon"></ion-icon>
+            <span class="detail-text">{{ event.planner_name }}</span>
+          </div>
+          <div class="detail-item">
+            <ion-icon name="location-outline" class="detail-icon"></ion-icon>
+            <span class="detail-text">{{ event.event_place }}</span>
+          </div>
+        </div>
 
+        <div class="event-description">
+          <p class="description-text">{{ event.event_description }}</p>
+        </div>
+      </div>
 
-  <h2>Platonia</h2>
+      <div class="card-footer" *ngIf="event.user_id == user_id">
+        <ion-button class="view-button" fill="outline" (click)="go(event.id)">
+          <ion-icon name="eye-outline" slot="start"></ion-icon>
+          View Details
+        </ion-button>
+      </div>
 
-  <h5>My Hang-outs</h5>
+      <!-- Card Accent -->
+      <div class="card-accent" [class.owner-accent]="event.user_id == user_id"></div>
+    </div>
+  </div>
 
-  <ion-card class="card-des" *ngFor="let event of events">
-    <ion-card-header>
-      <ion-card-subtitle>{{ event.planner_name }}</ion-card-subtitle>
-      <ion-card-subtitle>{{ event.event_place }}</ion-card-subtitle>
-      <ion-card-title>{{ event.event_topic }}</ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
-      {{ event.event_description }}
-    </ion-card-content>
-    <ion-button *ngIf="event.user_id == user_id" class="card-button" (click)="go(event.id)" >View</ion-button>
-  </ion-card>
-
-
-
+  <!-- Floating Action Button -->
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-add" (click)="createEvent()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
 </ion-content>
-

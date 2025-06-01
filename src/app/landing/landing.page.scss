@@ -1,92 +1,457 @@
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5vh; /* Optionally, set a specific height for the container */
+// Import fonts
+@font-face { 
+  font-family: Playball; 
+  src: url('../../assets/fonts/Playball-Regular.ttf'); 
 }
-.pink{
-    background-color: #C058E4;
-    width: 55px;
-    height: 55px;
-    border-radius: 55px;
-    padding: 55px;
-    margin: auto;
-    margin-top:-25px;
 
+@font-face { 
+  font-family: Poppins-SemiBold; 
+  src: url('../../assets/fonts/Poppins-SemiBold.ttf'); 
+}
+
+@font-face { 
+  font-family: Poppins-light300; 
+  src: url('../../assets/fonts/Poppins-Light.ttf'); 
+}
+
+// Main content
+ion-content {
+  --background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+// Background decorative shapes
+.background-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  
+  &.shape-blue {
+    background: linear-gradient(135deg, #17A2F0, #1488cc);
+    width: 160px;
+    height: 160px;
+    top: -80px;
+    left: -80px;
+    animation: float 6s ease-in-out infinite;
   }
-
-  .grey{
-    background-color: #C4C4C4;
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
-    padding: 70px;
-    margin-left: auto;
-    margin-right: -20px;
-    margin-top: -100px;
-
+  
+  &.shape-pink {
+    background: linear-gradient(135deg, #C058E4, #a848c7);
+    width: 110px;
+    height: 110px;
+    top: 50px;
+    right: -55px;
+    animation: float 8s ease-in-out infinite reverse;
   }
-
-  .blue{
-    background-color: #17A2F0;
-    width: 80px;
-    height: 80px;
-    border-radius: 80px;
-    padding: 80px;
-    margin-left: -40px;
-    margin-top:-50px;
-    float: left;
+  
+  &.shape-grey {
+    background: linear-gradient(135deg, #C4C4C4, #a8a8a8);
+    width: 140px;
+    height: 140px;
+    top: 120px;
+    right: -20px;
+    animation: float 7s ease-in-out infinite;
   }
+}
 
-  h2{
-    font-family: Playball;
-    font-size: 30px;
-    margin-top: -15px;
-    text-align: center;
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
 
-
+// Header section
+.header-section {
+  position: relative;
+  z-index: 10;
+  padding: 40px 20px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.8) 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  
+  .app-title {
+    font-family: Playball, cursive;
+    font-size: 36px;
+    color: #2c3e50;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #5D5FEF, #C058E4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-
-  h5{
-    font-family: Poppins-SemiBold;
-    text-align: center;
-    margin-top: -5px;
-    font-size: 15px;
+  
+  .page-subtitle {
+    font-family: Poppins-SemiBold, sans-serif;
+    font-size: 16px;
+    color: #7f8c8d;
+    margin: 8px 0 0 0;
+    font-weight: 400;
   }
+}
 
-  .card-button{
-      height: 20px;
-      width: 60px;
-      font-size: 9px;
-      --border-radius: 10px;
-      --background: #ede8e8;
-      --border-width: 2px;
-      --border-color:#5D5FEF;
+// Controls section
+.controls-section {
+  position: relative;
+  z-index: 10;
+  padding: 20px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+}
+
+.filter-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  
+  .filter-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    
+    .filter-icon {
+      font-size: 20px;
       color: #5D5FEF;
-      margin-left: 170px;
-
+    }
+    
+    .filter-label {
+      font-family: Poppins-SemiBold, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
   }
-
-  .card-des{
-      font-family:Poppins-light300 ;
+  
+  .category-select {
+    --background: #f8f9fa;
+    --color: #2c3e50;
+    --placeholder-color: #95a5a6;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --border-radius: 12px;
+    --border-color: #e9ecef;
+    --border-style: solid;
+    --border-width: 2px;
+    --highlight-color-focused: #5D5FEF;
+    font-family: Poppins-light300, sans-serif;
+    width: 100%;
+    
+    &.select-expanded {
+      --border-color: #5D5FEF;
+      --background: white;
+    }
   }
-
-  .fabular{
-    --background: #56B570;
 }
 
-ion-card-subtitle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.suggested-section {
+  .suggested-btn {
+    --background: transparent;
+    --background-hover: rgba(93, 95, 239, 0.1);
+    --border-color: #5D5FEF;
+    --border-radius: 12px;
+    --border-width: 2px;
+    --color: #5D5FEF;
+    --ripple-color: rgba(93, 95, 239, 0.2);
+    font-family: Poppins-SemiBold, sans-serif;
+    font-weight: 600;
+    height: 48px;
+    
+    &:hover {
+      --background: rgba(93, 95, 239, 0.1);
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+  }
 }
 
+// Events container
+.events-container {
+  position: relative;
+  z-index: 10;
+  padding: 0 20px 100px;
+  background: transparent;
+}
 
-  @font-face { font-family: Playball;
-    src: url('../../assets/fonts/Playball-Regular.ttf'); }
+// Empty state
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+  
+  .empty-icon {
+    font-size: 64px;
+    color: #bdc3c7;
+    margin-bottom: 16px;
+  }
+  
+  h3 {
+    font-family: Poppins-SemiBold, sans-serif;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+  }
+  
+  p {
+    font-family: Poppins-light300, sans-serif;
+    color: #7f8c8d;
+    margin: 0;
+  }
+}
 
-  @font-face { font-family: Poppins-SemiBold;
-    src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
+// Event cards
+.event-card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  
+  // Card header
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 20px 0;
+    
+    .planner-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        opacity: 0.8;
+        transform: translateX(4px);
+      }
+      
+      .planner-avatar {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #5D5FEF, #C058E4);
+        
+        ion-icon {
+          font-size: 32px;
+          color: white;
+        }
+      }
+      
+      .planner-details {
+        .planner-name {
+          font-family: Poppins-SemiBold, sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          color: #2c3e50;
+          margin: 0;
+        }
+        
+        .planner-label {
+          font-family: Poppins-light300, sans-serif;
+          font-size: 12px;
+          color: #95a5a6;
+        }
+      }
+    }
+    
+    .event-category {
+      --background: rgba(93, 95, 239, 0.1);
+      --color: #5D5FEF;
+      font-size: 12px;
+    }
+  }
+  
+  // Card content
+  .card-content {
+    padding: 0 20px;
+    
+    .event-title {
+      font-family: Poppins-SemiBold, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 16px 0 12px 0;
+      line-height: 1.3;
+    }
+    
+    .event-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+      
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        .meta-icon {
+          font-size: 16px;
+          color: #5D5FEF;
+          flex-shrink: 0;
+        }
+        
+        .meta-text {
+          font-family: Poppins-light300, sans-serif;
+          font-size: 12px;
+          color: #7f8c8d;
+          line-height: 1.2;
+        }
+      }
+    }
+    
+    .event-description {
+      font-family: Poppins-light300, sans-serif;
+      font-size: 14px;
+      color: #34495e;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  
+  // Card actions
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px 20px;
+    
+    .engagement-stats {
+      display: flex;
+      gap: 16px;
+      
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        
+        .stat-icon {
+          font-size: 18px;
+          color: #95a5a6;
+        }
+        
+        .stat-count {
+          font-family: Poppins-light300, sans-serif;
+          font-size: 12px;
+          color: #7f8c8d;
+        }
+      }
+    }
+    
+    .view-btn {
+      --background: linear-gradient(135deg, #5D5FEF, #4c47d9);
+      --background-hover: linear-gradient(135deg, #4c47d9, #3d37c2);
+      --color: white;
+      --border-radius: 12px;
+      --box-shadow: 0 4px 12px rgba(93, 95, 239, 0.3);
+      font-family: Poppins-SemiBold, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      height: 36px;
+      
+      &:hover {
+        transform: translateY(-2px);
+        --box-shadow: 0 6px 16px rgba(93, 95, 239, 0.4);
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
 
-    @font-face { font-family: Poppins-light300;
-      src: url('../../assets/fonts/Poppins-Light.ttf'); }
+// Floating Action Buttons
+.create-fab {
+  --background: linear-gradient(135deg, #56B570, #4a9960);
+  --background-hover: linear-gradient(135deg, #4a9960, #3d7d4f);
+  --box-shadow: 0 8px 24px rgba(86, 181, 112, 0.4);
+  --color: white;
+  
+  &:hover {
+    --box-shadow: 0 12px 32px rgba(86, 181, 112, 0.6);
+    transform: translateY(-4px) scale(1.05);
+    transition: all 0.3s ease;
+  }
+}
+
+.refresh-fab {
+  --background: rgba(255,255,255,0.9);
+  --background-hover: white;
+  --box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  --color: #5D5FEF;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    --box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transform: translateY(-2px) rotate(180deg);
+    transition: all 0.3s ease;
+  }
+}
+
+// Animations
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .event-meta {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .header-section {
+    padding: 30px 16px 16px;
+    
+    .app-title {
+      font-size: 32px;
+    }
+    
+    .page-subtitle {
+      font-size: 14px;
+    }
+  }
+  
+  .controls-section,
+  .events-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    
+    .view-btn {
+      width: 100%;
+    }
+  }
+}

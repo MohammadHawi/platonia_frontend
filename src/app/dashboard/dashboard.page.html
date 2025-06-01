@@ -1,88 +1,147 @@
 <ion-content>
-
-  <div class="header-container">
-    <div class="grey-circle"></div>
-    <h2>Platonia</h2>
-    <div class="blue-circle"></div>
+  <!-- Header Section -->
+  <div class="header-section">
+    <!-- Decorative Elements -->
+    <div class="decoration decoration-grey"></div>
+    <div class="decoration decoration-blue"></div>
+    <div class="decoration decoration-pink"></div>
+    
+    <!-- App Title -->
+    <div class="title-container">
+      <h1 class="app-title">Platonia</h1>
+      <div class="title-underline"></div>
+    </div>
   </div>
 
-  <div class="section-title">
-    <ion-item lines="none">
-      <h5>Dashboard Overview</h5>
-    </ion-item>
+  <!-- Dashboard Overview Section -->
+  <div class="section-header">
+    <div class="section-icon">
+      <ion-icon name="analytics-outline"></ion-icon>
+    </div>
+    <h2 class="section-title">Dashboard Overview</h2>
   </div>
 
-  <div class="card-grid">
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="calendar-outline" class="card-icon"></ion-icon>
-        <ion-card-title>Events</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ dashboard.events }}</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="people-outline" class="card-icon"></ion-icon>
-        <ion-card-title>Members</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ dashboard.members }}</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-icon name="stats-chart-outline" class="card-icon"></ion-icon>
-        <ion-card-title>Avg. Members</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ dashboard.average_members }}</p>
-      </ion-card-content>
-    </ion-card>
-  </div>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-icon name="trophy-outline" class="card-icon"></ion-icon>
-      <ion-card-title>Top 3 Events</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <div *ngIf="dashboard.top_events?.length > 0; else noEvents">
-        <ion-item *ngFor="let event of dashboard.top_events">
-          <ion-label>
-            <h3>{{ event.event_topic }}</h3>
-            <p>{{ event.event_place }} | {{ event.event_date }} | {{ event.event_time }}</p>
-            <p>Capacity: {{ event.event_capacity }} | Attending: {{ event.users_count }}</p>
-          </ion-label>
-        </ion-item>
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card events-card">
+      <div class="stat-icon">
+        <ion-icon name="calendar"></ion-icon>
       </div>
+      <div class="stat-content">
+        <div class="stat-number">{{ dashboard.events }}</div>
+        <div class="stat-label">Total Events</div>
+      </div>
+      <div class="stat-accent"></div>
+    </div>
+
+    <div class="stat-card members-card">
+      <div class="stat-icon">
+        <ion-icon name="people"></ion-icon>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number">{{ dashboard.members }}</div>
+        <div class="stat-label">Total Members</div>
+      </div>
+      <div class="stat-accent"></div>
+    </div>
+
+    <div class="stat-card average-card">
+      <div class="stat-icon">
+        <ion-icon name="stats-chart"></ion-icon>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number">{{ dashboard.average_members }}</div>
+        <div class="stat-label">Avg. Attendance</div>
+      </div>
+      <div class="stat-accent"></div>
+    </div>
+  </div>
+
+  <!-- Top Events Section -->
+  <div class="info-card">
+    <div class="card-header">
+      <div class="header-icon">
+        <ion-icon name="trophy"></ion-icon>
+      </div>
+      <h3 class="card-title">Top 3 Events</h3>
+    </div>
+    
+    <div class="card-content">
+      <div *ngIf="dashboard.top_events?.length > 0; else noEvents" class="events-list">
+        <div class="event-item" *ngFor="let event of dashboard.top_events; let i = index">
+          <div class="event-rank">
+            <span class="rank-number">{{ i + 1 }}</span>
+          </div>
+          <div class="event-details">
+            <h4 class="event-title">{{ event.event_topic }}</h4>
+            <div class="event-meta">
+              <span class="meta-item">
+                <ion-icon name="location-outline"></ion-icon>
+                {{ event.event_place }}
+              </span>
+              <span class="meta-item">
+                <ion-icon name="calendar-outline"></ion-icon>
+                {{ event.event_date }}
+              </span>
+              <span class="meta-item">
+                <ion-icon name="time-outline"></ion-icon>
+                {{ event.event_time }}
+              </span>
+            </div>
+            <div class="attendance-info">
+              <div class="attendance-bar">
+                <div class="attendance-fill" [style.width.%]="(event.users_count / event.event_capacity) * 100"></div>
+              </div>
+              <span class="attendance-text">{{ event.users_count }}/{{ event.event_capacity }} attending</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <ng-template #noEvents>
-        <p class="empty-state">No top events available.</p>
+        <div class="empty-state">
+          <div class="empty-icon">
+            <ion-icon name="trophy-outline"></ion-icon>
+          </div>
+          <p class="empty-text">No top events available yet</p>
+          <p class="empty-subtext">Events will appear here as they gain popularity</p>
+        </div>
       </ng-template>
-    </ion-card-content>
-  </ion-card>
+    </div>
+  </div>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-icon name="flash-outline" class="card-icon"></ion-icon>
-      <ion-card-title>Recent Activity</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <div *ngIf="dashboard.recent_activity?.length > 0; else noActivity">
-        <ion-item *ngFor="let activity of dashboard.recent_activity">
-          <ion-label>
-            <p>{{ activity.description }}</p>
-            <small>{{ activity.created_at | date:'short' }}</small>
-          </ion-label>
-        </ion-item>
+  <!-- Recent Activity Section -->
+  <div class="info-card">
+    <div class="card-header">
+      <div class="header-icon activity-icon">
+        <ion-icon name="flash"></ion-icon>
       </div>
+      <h3 class="card-title">Recent Activity</h3>
+    </div>
+    
+    <div class="card-content">
+      <div *ngIf="dashboard.recent_activity?.length > 0; else noActivity" class="activity-list">
+        <div class="activity-item" *ngFor="let activity of dashboard.recent_activity">
+          <div class="activity-dot"></div>
+          <div class="activity-content">
+            <p class="activity-description">{{ activity.description }}</p>
+            <span class="activity-time">{{ activity.created_at | date:'short' }}</span>
+          </div>
+        </div>
+      </div>
+      
       <ng-template #noActivity>
-        <p class="empty-state">No recent activity found.</p>
+        <div class="empty-state">
+          <div class="empty-icon">
+            <ion-icon name="flash-outline"></ion-icon>
+          </div>
+          <p class="empty-text">No recent activity</p>
+          <p class="empty-subtext">Activity will appear here as events are created and joined</p>
+        </div>
       </ng-template>
-    </ion-card-content>
-  </ion-card>
+    </div>
+  </div>
 
+  <!-- Bottom Spacing -->
+  <div class="bottom-spacing"></div>
 </ion-content>

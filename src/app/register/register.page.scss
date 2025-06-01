@@ -89,6 +89,65 @@
       a{
         text-decoration: none;
       }
+
+  // Add these styles to your register.page.scss file
+
+.error-message {
+  padding: 5px 16px;
+  margin-bottom: 10px;
+  
+  small {
+    font-size: 12px;
+    display: block;
+  }
+}
+
+ion-radio-group {
+  width: 100%;
+  
+  ion-item {
+    --padding-start: 0;
+    margin: 5px 0;
+    
+    ion-label {
+      margin-left: 10px;
+    }
+  }
+}
+
+ion-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+// Optional: Style the form items
+ion-item {
+  margin-bottom: 10px;
+  
+  .label {
+    font-weight: 600;
+    color: var(--ion-color-dark);
+  }
+  
+  .input {
+    margin-top: 5px;
+  }
+}
+
+.sign {
+  margin-top: 20px;
+  
+  .par {
+    text-align: center;
+    margin-top: 15px;
+    
+    a {
+      color: var(--ion-color-primary);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
     
   @font-face { font-family: Playball; 
     src: url('../../assets/fonts/Playball-Regular.ttf'); }
