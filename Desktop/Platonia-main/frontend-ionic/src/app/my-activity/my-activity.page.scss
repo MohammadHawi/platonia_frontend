@@ -1,89 +1,339 @@
-.pink{
-    background-color: #C058E4;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    padding: 50px;
-    margin: auto;
-    margin-top:-35px;
+// Modern theme variables
+:host {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --border-radius: 16px;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
 
-  }
-  .grey{
-    background-color: #C4C4C4;
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
-    padding: 70px;
-    margin-left: auto;
-    margin-right: -35px;
-    margin-top: -90px;
-  
-  }
-  
-  .blue{
-    background-color: #17A2F0;
-    width: 80px;
-    height: 80px;
-    border-radius: 80px;
-    padding: 80px;
-    margin-left: -50px;
-    margin-top:-60px;
-    float: left;
-  }
+ion-content {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: auto;
+}
 
-  h2{
-    font-family: Playball;
-    font-size: 30px;
-    margin-top: -15px;
-    text-align: center;
+// Decorative circles
+.decorative-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 0;
+}
 
-    
-  }
+.circle-1 {
+  width: 120px;
+  height: 120px;
+  background: var(--secondary-gradient);
+  top: -60px;
+  left: -60px;
+}
 
-  h5{
-    font-family: Poppins-SemiBold;
-    text-align: center;
-    margin-top: -5px;
-    font-size: 15px;
-  }
+.circle-2 {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-gradient);
+  top: 100px;
+  right: -40px;
+}
 
-  .card-button{
-      height: 20px;
-      width: 60px;
-      font-size: 9px;
-      --border-radius: 10px;
-      --background: #ede8e8;
-      --border-width: 2px;
-      --border-color:#5D5FEF;
-      color: #5D5FEF;
-      margin-left: 170px;
-     
-  }
+.circle-3 {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-gradient);
+  bottom: 200px;
+  left: 20px;
+}
 
-  .card-des{
-      font-family:Poppins-light300 ;
-  }
-  
-  .styled-empty-message {
-    text-align: center;
-    margin-top: 60px;
-    color: #888;
-    font-family: Poppins-light300;
-    font-size: 18px;
-    padding: 32px 16px;
-    border-radius: 12px;
-    background: #f7f7fa;
-    max-width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+// Modern header
+.modern-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    font-family: 'Playball', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  @font-face { font-family: Playball; 
-    src: url('../../assets/fonts/Playball-Regular.ttf'); }
-  
-  @font-face { font-family: Poppins-SemiBold; 
-    src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
-  
-    @font-face { font-family: Poppins-light300; 
-      src: url('../../assets/fonts/Poppins-Light.ttf'); }
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 8px 0 4px;
+    color: white;
+  }
+
+  .header-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 300;
+  }
+}
+
+// Events container
+.events-container {
+  padding: 0 20px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+// Loading state
+.loading-container {
+  text-align: center;
+  padding: 60px 20px;
+
+  .loading-spinner {
+    --color: white;
+    width: 40px;
+    height: 40px;
+  }
+
+  .loading-text {
+    color: white;
+    margin-top: 16px;
+    font-size: 0.9rem;
+  }
+}
+
+// Events grid
+.events-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// Modern event card
+.modern-event-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+// Event header
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  .event-creator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .creator-icon {
+      font-size: 20px;
+      color: #667eea;
+    }
+
+    .creator-name {
+      font-weight: 500;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+    }
+  }
+
+  .event-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+
+    .location-icon {
+      font-size: 16px;
+    }
+  }
+}
+
+// Event content
+.event-content {
+  margin-bottom: 20px;
+
+  .event-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+  }
+
+  .event-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Event actions
+.event-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+// Modern buttons
+.modern-button {
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  font-size: 0.85rem;
+  height: 40px;
+  transition: all 0.3s ease;
+
+  &.view-button {
+    --background: var(--primary-gradient);
+    --color: white;
+  }
+
+  &.join-button {
+    --background: var(--secondary-gradient);
+    --color: white;
+  }
+
+  &.create-button {
+    --background: var(--accent-gradient);
+    --color: white;
+    margin-top: 16px;
+  }
+
+  &:hover {
+    --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+// Event badge
+.event-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  .creator-badge {
+    --background: var(--accent-gradient);
+    --color: white;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+}
+
+// Empty state
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+
+  .empty-icon {
+    font-size: 4rem;
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+  }
+}
+
+// Floating action button
+.modern-fab {
+  --background: var(--accent-gradient);
+  --color: white;
+  --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    --box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+  }
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .modern-header {
+    padding: 30px 16px 16px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+
+  .events-container {
+    padding: 0 16px 100px;
+  }
+
+  .modern-event-card {
+    padding: 20px;
+  }
+
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+// Font imports
+@font-face {
+  font-family: 'Playball';
+  src: url('../../assets/fonts/Playball-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../assets/fonts/Poppins-Regular.ttf');
+}
