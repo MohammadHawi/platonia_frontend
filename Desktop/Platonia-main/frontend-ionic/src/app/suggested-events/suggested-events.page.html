@@ -1,0 +1,30 @@
+<ion-content>
+
+  <div class="pink">
+    <ion-fab-button (click)="go()" size="small" color="dark" style="margin-left: -10px; margin-top: -5px;">
+      <ion-icon name="close-circle-outline" size="large"></ion-icon>
+    </ion-fab-button>
+
+  </div>
+
+
+  <h2>Platonia</h2>
+
+  <div class="green"></div>
+
+  <h5>Suggested Events</h5>
+
+
+  <ion-card class="card-des" *ngFor="let event of events">
+    <ion-card-header>
+      <ion-card-subtitle>{{ event.planner_name }}</ion-card-subtitle>
+      <ion-card-title>{{ event.event_topic }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ event.event_description }}
+    </ion-card-content>
+    <ion-button class="card-button" (click)="go(event.id)" >View</ion-button>
+  </ion-card>
+
+</ion-content>

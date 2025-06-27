@@ -1,0 +1,89 @@
+<ion-content>
+  <!-- Decorative background elements -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  <div class="decorative-circle circle-3"></div>
+
+  <!-- Modern Header -->
+  <div class="modern-header">
+    <h1>Platonia</h1>
+    <h2>My Events</h2>
+    <p class="header-subtitle">Your created and joined events</p>
+  </div>
+
+  <!-- Events Container -->
+  <div class="events-container">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+      <ion-spinner name="crescent" class="loading-spinner"></ion-spinner>
+      <p class="loading-text">Loading your events...</p>
+    </div>
+
+    <!-- Events List -->
+    <ng-container *ngIf="!isLoading && events.length > 0; else noEvents">
+      <div class="events-grid">
+        <div class="modern-event-card" *ngFor="let event of events">
+          <div class="event-header">
+            <div class="event-creator">
+              <ion-icon name="person-circle-outline" class="creator-icon"></ion-icon>
+              <span class="creator-name">{{ event.planner_name }}</span>
+            </div>
+            <div class="event-location" *ngIf="event.event_place">
+              <ion-icon name="location-outline" class="location-icon"></ion-icon>
+              <span>{{ event.event_place }}</span>
+            </div>
+          </div>
+
+          <div class="event-content">
+            <h3 class="event-title">{{ event.event_topic }}</h3>
+            <p class="event-description">{{ event.event_description }}</p>
+          </div>
+
+          <div class="event-actions">
+            <ion-button 
+              *ngIf="event.user_id == user_id" 
+              class="modern-button view-button" 
+              (click)="go(event.id)">
+              <ion-icon name="eye-outline" slot="start"></ion-icon>
+              View Details
+            </ion-button>
+            <ion-button 
+              *ngIf="event.user_id != user_id" 
+              class="modern-button join-button" 
+              (click)="viewEvent(event.id)">
+              <ion-icon name="people-outline" slot="start"></ion-icon>
+              View Event
+            </ion-button>
+          </div>
+
+          <div class="event-badge" *ngIf="event.user_id == user_id">
+            <ion-badge class="creator-badge">Created by you</ion-badge>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Empty State -->
+    <ng-template #noEvents>
+      <div class="empty-state">
+        <ion-icon name="calendar-outline" class="empty-icon"></ion-icon>
+        <h3>No Events Yet</h3>
+        <p>You haven't created or joined any events yet.</p>
+        <ion-button 
+          class="modern-button create-button"
+          (click)="createEvent()">
+          <ion-icon name="add-outline" slot="start"></ion-icon>
+          Create Your First Event
+        </ion-button>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Floating Action Button -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button class="modern-fab" (click)="createEvent()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

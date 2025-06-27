@@ -1,0 +1,596 @@
+// Import fonts
+@font-face { 
+  font-family: Playball; 
+  src: url('../../assets/fonts/Playball-Regular.ttf'); 
+}
+
+@font-face { 
+  font-family: Poppins-SemiBold; 
+  src: url('../../assets/fonts/Poppins-SemiBold.ttf'); 
+}
+
+@font-face { 
+  font-family: Poppins-light300; 
+  src: url('../../assets/fonts/Poppins-Light.ttf'); 
+}
+
+ion-content {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --overflow: auto;
+}
+
+// Header Section
+.header-section {
+  position: relative;
+  padding: 20px;
+  padding-top: 40px;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.decorative-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.circle-1 {
+  width: 120px;
+  height: 120px;
+  top: -60px;
+  left: -60px;
+}
+
+.circle-2 {
+  width: 80px;
+  height: 80px;
+  top: 20px;
+  right: -40px;
+}
+
+.circle-3 {
+  width: 60px;
+  height: 60px;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.app-title {
+  font-family: Playball;
+  font-size: 36px;
+  color: white;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.avatar-icon {
+  font-size: 40px;
+  color: white;
+}
+
+.profile-title {
+  font-family: Poppins-SemiBold;
+  font-size: 24px;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// Cards
+.profile-card,
+.interests-card,
+.stats-card {
+  background: white;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f8f9fa;
+  position: relative;
+}
+
+.card-icon {
+  font-size: 24px;
+  color: #667eea;
+}
+
+.card-header h3 {
+  font-family: Poppins-SemiBold;
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 0;
+  flex: 1;
+}
+
+.edit-toggle-btn {
+  --color: #667eea;
+  --background: transparent;
+  --border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  transition: all 0.3s ease;
+}
+
+.edit-toggle-btn:hover {
+  --background: rgba(102, 126, 234, 0.1);
+  transform: scale(1.1);
+}
+
+// Info Grid
+.info-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Poppins-SemiBold;
+  font-size: 12px;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.label-icon {
+  font-size: 16px;
+  color: #667eea;
+}
+
+.info-value {
+  font-family: Poppins-light300;
+  font-size: 16px;
+  color: #2c3e50;
+  font-weight: 500;
+  margin-left: 24px;
+}
+
+// Edit Form
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modern-input {
+  --background: #f8f9fa;
+  --border-radius: 12px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  margin-bottom: 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.modern-input:focus-within {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-label {
+  font-family: Poppins-SemiBold;
+  font-size: 14px;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  font-family: Poppins-light300;
+  font-size: 16px;
+  color: #2c3e50;
+  --placeholder-color: #6c757d;
+  --placeholder-opacity: 0.7;
+}
+
+.modern-select {
+  --background: #f8f9fa;
+  --border-radius: 12px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-family: Poppins-light300;
+  --placeholder-color: #6c757d;
+  --placeholder-opacity: 0.7;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.save-button {
+  --background: linear-gradient(135deg, #28a745, #20c997);
+  --box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+  flex: 1;
+  height: 45px;
+  font-family: Poppins-SemiBold;
+  font-size: 14px;
+  --border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.save-button:hover {
+  --box-shadow: 0 12px 35px rgba(40, 167, 69, 0.6);
+  transform: translateY(-2px);
+}
+
+.save-button:disabled {
+  --background: #6c757d;
+  --box-shadow: none;
+  opacity: 0.6;
+}
+
+.cancel-button {
+  --background: transparent;
+  --color: #6c757d;
+  --border-color: #6c757d;
+  --border-radius: 12px;
+  flex: 1;
+  height: 45px;
+  font-family: Poppins-SemiBold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  --background: #6c757d;
+  --color: white;
+}
+
+// Interests Section
+.interests-content {
+  min-height: 100px;
+}
+
+.interests-text {
+  font-family: Poppins-light300;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #495057;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border-left: 4px solid #28a745;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.no-interests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  color: #6c757d;
+  text-align: center;
+}
+
+.no-interests-icon {
+  font-size: 32px;
+  color: #dee2e6;
+  margin-bottom: 10px;
+}
+
+.no-interests p {
+  font-family: Poppins-light300;
+  font-size: 14px;
+  margin: 0 0 15px 0;
+}
+
+.add-interests-btn {
+  --color: #667eea;
+  --background: transparent;
+  font-family: Poppins-SemiBold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.add-interests-btn:hover {
+  --color: #5a67d8;
+  transform: scale(1.05);
+}
+
+// Interests Edit
+.interests-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.interest-suggestions {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.interest-suggestions h4 {
+  font-family: Poppins-SemiBold;
+  font-size: 16px;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+}
+
+.suggestion-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.interest-chip {
+  --background: rgba(102, 126, 234, 0.1);
+  --color: #667eea;
+  --border-radius: 20px;
+  font-family: Poppins-light300;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interest-chip:hover {
+  --background: #667eea;
+  --color: white;
+  transform: scale(1.05);
+}
+
+// Stats Card
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.stat-icon ion-icon {
+  font-size: 20px;
+  color: white;
+}
+
+.stat-number {
+  font-family: Poppins-SemiBold;
+  font-size: 24px;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: Poppins-light300;
+  font-size: 12px;
+  color: #6c757d;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Action Section
+.action-section {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.edit-button {
+  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --border-radius: 15px;
+  --box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  font-family: Poppins-SemiBold;
+  font-size: 16px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+  --box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+  transform: translateY(-2px);
+}
+
+// Bottom Decoration
+.bottom-decoration {
+  position: relative;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.circle-4 {
+  width: 100px;
+  height: 100px;
+  bottom: -50px;
+  left: -50px;
+}
+
+.circle-5 {
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: -30px;
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .header-section {
+    padding: 15px;
+    padding-top: 30px;
+    min-height: 180px;
+  }
+  
+  .app-title {
+    font-size: 28px;
+  }
+  
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .avatar-icon {
+    font-size: 30px;
+  }
+  
+  .profile-card,
+  .interests-card,
+  .stats-card {
+    margin: 15px;
+    padding: 20px;
+  }
+  
+  .info-item {
+    padding: 12px;
+  }
+  
+  .info-value {
+    font-size: 14px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .suggestion-tags {
+    gap: 6px;
+  }
+  
+  .interest-chip {
+    font-size: 11px;
+  }
+}
+
+// Animation for cards
+.profile-card,
+.interests-card,
+.stats-card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Hover effects
+.profile-card:hover,
+.interests-card:hover,
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+// Loading states
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+// Success animation
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.save-button.success {
+  animation: successPulse 0.3s ease;
+}

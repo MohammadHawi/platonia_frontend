@@ -1,0 +1,108 @@
+<ion-content>
+  <!-- Decorative background elements -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  <div class="decorative-circle circle-3"></div>
+
+  <!-- Modern Header -->
+  <div class="modern-header">
+    <h1>Platonia</h1>
+    <h2>Dashboard</h2>
+    <p class="header-subtitle">Your activity overview</p>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-container">
+    <div class="modern-card stats-card">
+      <div class="stat-item">
+        <div class="stat-icon">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ dashboard.total_events_created || 0 }}</h3>
+          <p class="stat-label">Events Created</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modern-card stats-card">
+      <div class="stat-item">
+        <div class="stat-icon">
+          <ion-icon name="people-outline"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ dashboard.total_members || 0 }}</h3>
+          <p class="stat-label">Total Members</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Events Section -->
+  <div class="modern-card events-section">
+    <div class="section-header">
+      <ion-icon name="trophy-outline" class="section-icon"></ion-icon>
+      <h3 class="section-title">Top 3 Events</h3>
+    </div>
+    
+    <div class="events-list" *ngIf="dashboard.top_events && dashboard.top_events.length > 0">
+      <div class="event-item" *ngFor="let event of dashboard.top_events; let i = index">
+        <div class="event-rank">
+          <span class="rank-number">{{ i + 1 }}</span>
+        </div>
+        <div class="event-info">
+          <h4 class="event-title">{{ event.event_topic }}</h4>
+          <div class="event-meta">
+            <span class="event-members">
+              <ion-icon name="people-outline"></ion-icon>
+              {{ event.user_events_count }} members
+            </span>
+            <span class="event-date">
+              <ion-icon name="calendar-outline"></ion-icon>
+              {{ event.event_date }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="empty-state" *ngIf="!dashboard.top_events || dashboard.top_events.length === 0">
+      <ion-icon name="calendar-outline" class="empty-icon"></ion-icon>
+      <p>No events created yet</p>
+    </div>
+  </div>
+
+  <!-- Upcoming Events Section -->
+  <div class="modern-card events-section">
+    <div class="section-header">
+      <ion-icon name="time-outline" class="section-icon"></ion-icon>
+      <h3 class="section-title">Upcoming Events</h3>
+    </div>
+    
+    <div class="events-list" *ngIf="dashboard.upcoming_events && dashboard.upcoming_events.length > 0">
+      <div class="event-item" *ngFor="let event of dashboard.upcoming_events">
+        <div class="event-info">
+          <h4 class="event-title">{{ event.event_topic }}</h4>
+          <div class="event-meta">
+            <span class="event-date">
+              <ion-icon name="calendar-outline"></ion-icon>
+              {{ event.event_date }}
+            </span>
+            <span class="event-time">
+              <ion-icon name="time-outline"></ion-icon>
+              {{ event.event_time }}
+            </span>
+          </div>
+        </div>
+        <div class="event-status">
+          <ion-badge class="upcoming-badge">Upcoming</ion-badge>
+        </div>
+      </div>
+    </div>
+    
+    <div class="empty-state" *ngIf="!dashboard.upcoming_events || dashboard.upcoming_events.length === 0">
+      <ion-icon name="time-outline" class="empty-icon"></ion-icon>
+      <p>No upcoming events</p>
+    </div>
+  </div>
+</ion-content>

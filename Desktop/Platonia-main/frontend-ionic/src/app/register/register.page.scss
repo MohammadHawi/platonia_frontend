@@ -1,0 +1,380 @@
+.pink{
+    background-color: #C058E4;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    padding: 100px;
+    margin:-20px;
+    float: left;
+  }
+  .grey{
+    background-color: #C4C4C4;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    padding: 70px;
+    margin-left: auto;
+    margin-right: -25px;
+    margin-top: -25px;
+  
+  }
+  
+  .blue{
+    background-color: #17A2F0;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    padding: 80px;
+    margin-left: auto;
+    margin-right: -50px;
+    margin-top: -50px;
+  }
+  h2{
+    font-family: Playball;
+    font-size: 50px;
+    margin-top: -45px;
+    margin-left: 20px;
+    
+  }
+  
+  h5{
+    font-family: Poppins-SemiBold;
+    margin-left: 20px;
+    margin-top: -20px;
+  }
+  
+  p{
+  font-family: Poppins-light300;
+  margin-left: 20px;
+  margin-top: -10px;
+  font-size: 10px;
+  color: #B9B9B9;
+  
+  }
+
+    .input{
+      background-color: #F6F6F6;
+      border-radius: 5px;
+      margin-top: 6px;
+      --padding-start:8px;
+      font-family: Poppins-light300;
+    }
+    
+    ion-select {
+      --placeholder-color: #999;
+      --placeholder-opacity: 1;
+      font-family: Poppins-light300;
+    }
+    
+    .label{
+    font-family: Poppins-light300;
+    font-size:14px;
+    }
+     .sign{
+      margin-top: 7px;
+      padding-bottom: 20px;
+       
+     }
+      ion-button{
+        --background: #56B570;
+        text-transform: none;
+        font-family: Poppins-light300;
+        font-size: 10px;
+        height: 30px;
+        width: 250px;
+        margin: auto;
+        margin-bottom: 10 px;
+        
+      }
+    
+      .par{
+        margin-top: 8px;
+        color: black;
+        font-weight: bold;
+      }
+      a{
+        text-decoration: none;
+      }
+    
+  @font-face { font-family: Playball; 
+    src: url('../../assets/fonts/Playball-Regular.ttf'); }
+  
+  @font-face { font-family: Poppins-SemiBold; 
+    src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
+  
+    @font-face { font-family: Poppins-light300; 
+      src: url('../../assets/fonts/Poppins-Light.ttf'); }
+
+// Decorative circles
+.circle-1 {
+  width: 120px;
+  height: 120px;
+  top: 8%;
+  left: -60px;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.circle-2 {
+  width: 90px;
+  height: 90px;
+  top: 18%;
+  right: -45px;
+  background: rgba(118, 75, 162, 0.1);
+}
+
+.circle-3 {
+  width: 110px;
+  height: 110px;
+  bottom: 25%;
+  left: 12%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+// Header Subtitle
+.header-subtitle {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0 0 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// Form Styles
+.form-label {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 14px;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.label-icon {
+  font-size: 18px;
+  color: #667eea;
+  margin-right: 8px;
+}
+
+.form-input {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 16px;
+  color: var(--dark-text);
+  --placeholder-color: var(--light-text);
+  --placeholder-opacity: 0.7;
+}
+
+.modern-select {
+  --background: var(--light-bg);
+  --border-radius: 12px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-family: 'Poppins-light300', sans-serif;
+  --placeholder-color: var(--light-text);
+  --placeholder-opacity: 0.7;
+}
+
+.form-actions {
+  margin-top: 30px;
+}
+
+.register-button {
+  --background: var(--primary-gradient);
+  --box-shadow: var(--button-shadow);
+  height: 50px;
+  font-size: 16px;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  --border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.register-button:hover {
+  --box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+  transform: translateY(-2px);
+}
+
+.register-button:disabled {
+  --background: var(--light-text);
+  --box-shadow: none;
+  opacity: 0.6;
+}
+
+// Login Link
+.login-link {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f3f4;
+}
+
+.login-text {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 14px;
+  color: var(--medium-text);
+  margin: 0;
+}
+
+.login-anchor {
+  color: #667eea;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.login-anchor::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #667eea;
+  transition: width 0.3s ease;
+}
+
+.login-anchor:hover::after {
+  width: 100%;
+}
+
+.login-anchor:hover {
+  color: #5a67d8;
+}
+
+// Form validation styles
+.modern-input.ion-invalid {
+  border-color: var(--danger-color);
+}
+
+.modern-input.ion-valid {
+  border-color: var(--success-color);
+}
+
+// Password strength indicator
+.password-strength {
+  margin-top: 5px;
+  font-size: 12px;
+  font-family: 'Poppins-light300', sans-serif;
+}
+
+.password-strength.weak {
+  color: var(--danger-color);
+}
+
+.password-strength.medium {
+  color: var(--warning-color);
+}
+
+.password-strength.strong {
+  color: var(--success-color);
+}
+
+// Loading state
+.register-button.loading {
+  --background: var(--light-text);
+  pointer-events: none;
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .modern-form {
+    margin: 15px;
+    padding: 20px;
+  }
+  
+  .header-subtitle {
+    font-size: 14px;
+  }
+  
+  .form-label {
+    font-size: 13px;
+  }
+  
+  .form-input {
+    font-size: 15px;
+  }
+  
+  .modern-select {
+    font-size: 15px;
+  }
+  
+  .register-button {
+    height: 45px;
+    font-size: 15px;
+  }
+  
+  .login-text {
+    font-size: 13px;
+  }
+}
+
+// Animation for form elements
+.modern-form {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.modern-input {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.modern-input:nth-child(1) { animation-delay: 0.1s; }
+.modern-input:nth-child(2) { animation-delay: 0.2s; }
+.modern-input:nth-child(3) { animation-delay: 0.3s; }
+.modern-input:nth-child(4) { animation-delay: 0.4s; }
+.modern-input:nth-child(5) { animation-delay: 0.5s; }
+.modern-input:nth-child(6) { animation-delay: 0.6s; }
+
+// Focus effects
+.modern-input:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+// Success animation
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.register-button.success {
+  animation: successPulse 0.3s ease;
+}
+
+// Form field spacing
+.modern-input {
+  margin-bottom: 20px;
+}
+
+// Select styling
+ion-select {
+  --placeholder-color: var(--light-text);
+  --placeholder-opacity: 0.7;
+  font-family: 'Poppins-light300', sans-serif;
+}
+
+// Error message styling
+.error-message {
+  color: var(--danger-color);
+  font-size: 12px;
+  font-family: 'Poppins-light300', sans-serif;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+// Success message styling
+.success-message {
+  color: var(--success-color);
+  font-size: 12px;
+  font-family: 'Poppins-light300', sans-serif;
+  margin-top: 5px;
+  margin-left: 15px;
+}

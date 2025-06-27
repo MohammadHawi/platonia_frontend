@@ -1,0 +1,279 @@
+<ion-content>
+  <!-- Header with decorative elements -->
+  <div class="header-section">
+    <div class="decorative-circle circle-1"></div>
+    <div class="decorative-circle circle-2"></div>
+    <div class="decorative-circle circle-3"></div>
+    
+    <div class="header-content">
+      <h1 class="app-title">Platonia</h1>
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <ion-icon name="person" class="avatar-icon"></ion-icon>
+        </div>
+        <h2 class="profile-title">Profile</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Information Card -->
+  <div class="profile-card">
+    <div class="card-header">
+      <ion-icon name="person-circle-outline" class="card-icon"></ion-icon>
+      <h3>Personal Information</h3>
+      <ion-button 
+        fill="clear" 
+        size="small" 
+        class="edit-toggle-btn"
+        (click)="toggleEditMode()">
+        <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div>
+    
+    <div class="info-grid" *ngIf="!isEditing">
+      <div class="info-item">
+        <div class="info-label">
+          <ion-icon name="person-outline" class="label-icon"></ion-icon>
+          <span>Name</span>
+        </div>
+        <div class="info-value">{{user.name || 'Not set'}}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-label">
+          <ion-icon name="mail-outline" class="label-icon"></ion-icon>
+          <span>Email</span>
+        </div>
+        <div class="info-value">{{user.email || 'Not set'}}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-label">
+          <ion-icon name="calendar-outline" class="label-icon"></ion-icon>
+          <span>Age</span>
+        </div>
+        <div class="info-value">{{user.age ? user.age + ' years old' : 'Not set'}}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-label">
+          <ion-icon name="male-female-outline" class="label-icon"></ion-icon>
+          <span>Gender</span>
+        </div>
+        <div class="info-value">{{user.gender || 'Not set'}}</div>
+      </div>
+    </div>
+
+    <!-- Edit Form -->
+    <form *ngIf="isEditing" [formGroup]="editForm" (ngSubmit)="saveProfile()" class="edit-form">
+      <ion-item class="modern-input">
+        <ion-label position="stacked" class="form-label">
+          <ion-icon name="person-outline" class="label-icon"></ion-icon>
+          Full Name
+        </ion-label>
+        <ion-input 
+          formControlName="name" 
+          class="form-input" 
+          placeholder="Enter your full name">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="modern-input">
+        <ion-label position="stacked" class="form-label">
+          <ion-icon name="mail-outline" class="label-icon"></ion-icon>
+          Email Address
+        </ion-label>
+        <ion-input 
+          formControlName="email" 
+          class="form-input" 
+          type="email"
+          placeholder="Enter your email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="modern-input">
+        <ion-label position="stacked" class="form-label">
+          <ion-icon name="calendar-outline" class="label-icon"></ion-icon>
+          Age
+        </ion-label>
+        <ion-input 
+          formControlName="age" 
+          class="form-input" 
+          type="number"
+          placeholder="Enter your age">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="modern-input">
+        <ion-label position="stacked" class="form-label">
+          <ion-icon name="male-female-outline" class="label-icon"></ion-icon>
+          Gender
+        </ion-label>
+        <ion-select 
+          formControlName="gender" 
+          class="modern-select" 
+          placeholder="Select your gender">
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Other">Other</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="form-actions">
+        <ion-button 
+          type="submit" 
+          class="modern-button save-button"
+          [disabled]="!editForm.valid || isSaving">
+          <ion-icon name="checkmark-outline" slot="start"></ion-icon>
+          {{ isSaving ? 'Saving...' : 'Save Changes' }}
+        </ion-button>
+        <ion-button 
+          fill="outline" 
+          class="cancel-button"
+          (click)="cancelEdit()">
+          <ion-icon name="close-outline" slot="start"></ion-icon>
+          Cancel
+        </ion-button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Interests Card -->
+  <div class="interests-card">
+    <div class="card-header">
+      <ion-icon name="heart-outline" class="card-icon"></ion-icon>
+      <h3>Interests & Hobbies</h3>
+      <ion-button 
+        fill="clear" 
+        size="small" 
+        class="edit-toggle-btn"
+        (click)="toggleInterestsEdit()">
+        <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div>
+    
+    <!-- Display Interests -->
+    <div class="interests-content" *ngIf="!isEditingInterests">
+      <div class="interests-text" *ngIf="user.interests && user.interests.trim(); else noInterests">
+        {{user.interests}}
+      </div>
+      <ng-template #noInterests>
+        <div class="no-interests">
+          <ion-icon name="add-circle-outline" class="no-interests-icon"></ion-icon>
+          <p>No interests added yet</p>
+          <ion-button 
+            fill="clear" 
+            size="small" 
+            class="add-interests-btn"
+            (click)="toggleInterestsEdit()">
+            Add Interests
+          </ion-button>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Edit Interests -->
+    <div class="interests-edit" *ngIf="isEditingInterests">
+      <ion-item class="modern-input">
+        <ion-label position="stacked" class="form-label">
+          <ion-icon name="heart-outline" class="label-icon"></ion-icon>
+          Your Interests
+        </ion-label>
+        <ion-textarea 
+          [(ngModel)]="interestsText" 
+          class="form-input" 
+          placeholder="Tell us about your interests, hobbies, and what you enjoy doing..."
+          rows="4">
+        </ion-textarea>
+      </ion-item>
+
+      <!-- Interest Suggestions -->
+      <div class="interest-suggestions">
+        <h4>Popular Interests</h4>
+        <div class="suggestion-tags">
+          <ion-chip 
+            *ngFor="let interest of popularInterests" 
+            (click)="addInterest(interest)"
+            class="interest-chip">
+            {{ interest }}
+          </ion-chip>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <ion-button 
+          class="modern-button save-button"
+          (click)="saveInterests()"
+          [disabled]="isSaving">
+          <ion-icon name="checkmark-outline" slot="start"></ion-icon>
+          {{ isSaving ? 'Saving...' : 'Save Interests' }}
+        </ion-button>
+        <ion-button 
+          fill="outline" 
+          class="cancel-button"
+          (click)="cancelInterestsEdit()">
+          <ion-icon name="close-outline" slot="start"></ion-icon>
+          Cancel
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Stats Card -->
+  <div class="stats-card">
+    <div class="card-header">
+      <ion-icon name="analytics-outline" class="card-icon"></ion-icon>
+      <h3>Profile Statistics</h3>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-icon">
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h4 class="stat-number">{{userStats.eventsCreated || 0}}</h4>
+          <p class="stat-label">Events Created</p>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-icon">
+          <ion-icon name="people-outline"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h4 class="stat-number">{{userStats.eventsJoined || 0}}</h4>
+          <p class="stat-label">Events Joined</p>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-icon">
+          <ion-icon name="star-outline"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h4 class="stat-number">{{userStats.totalMembers || 0}}</h4>
+          <p class="stat-label">Total Members</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-section">
+    <ion-button 
+      (click)="go()" 
+      class="edit-button" 
+      expand="block"
+      *ngIf="!isEditing && !isEditingInterests">
+      <ion-icon name="create-outline" slot="start"></ion-icon>
+      Edit Profile
+    </ion-button>
+  </div>
+
+  <!-- Bottom decorative elements -->
+  <div class="bottom-decoration">
+    <div class="decorative-circle circle-4"></div>
+    <div class="decorative-circle circle-5"></div>
+  </div>
+</ion-content>

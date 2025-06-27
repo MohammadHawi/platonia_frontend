@@ -1,0 +1,333 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh; /* Optionally, set a specific height for the container */
+}
+.pink{
+    background-color: #C058E4;
+    width: 55px;
+    height: 55px;
+    border-radius: 55px;
+    padding: 55px;
+    margin: auto;
+    margin-top:-25px;
+
+  }
+
+  .grey{
+    background-color: #C4C4C4;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    padding: 70px;
+    margin-left: auto;
+    margin-right: -20px;
+    margin-top: -100px;
+
+  }
+
+  .blue{
+    background-color: #17A2F0;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    padding: 80px;
+    margin-left: -40px;
+    margin-top:-50px;
+    float: left;
+  }
+
+  h2{
+    font-family: Playball;
+    font-size: 30px;
+    margin-top: -15px;
+    text-align: center;
+
+
+  }
+
+  h5{
+    font-family: Poppins-SemiBold;
+    text-align: center;
+    margin-top: -5px;
+    font-size: 15px;
+  }
+
+  .card-button{
+      height: 20px;
+      width: 60px;
+      font-size: 9px;
+      --border-radius: 10px;
+      --background: #ede8e8;
+      --border-width: 2px;
+      --border-color:#5D5FEF;
+      color: #5D5FEF;
+      margin-left: 170px;
+
+  }
+
+  .card-des{
+      font-family:Poppins-light300 ;
+  }
+
+  .fabular{
+    --background: #56B570;
+}
+
+  @font-face { font-family: Playball;
+    src: url('../../assets/fonts/Playball-Regular.ttf'); }
+
+  @font-face { font-family: Poppins-SemiBold;
+    src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
+
+    @font-face { font-family: Poppins-light300;
+      src: url('../../assets/fonts/Poppins-Light.ttf'); }
+
+// Decorative circles
+.circle-1 {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: -60px;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.circle-2 {
+  width: 80px;
+  height: 80px;
+  top: 20%;
+  right: -40px;
+  background: rgba(118, 75, 162, 0.1);
+}
+
+.circle-3 {
+  width: 100px;
+  height: 100px;
+  bottom: 30%;
+  left: 10%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+// Filter Section
+.filter-section {
+  margin-top: -20px;
+  z-index: 10;
+  position: relative;
+}
+
+.modern-select {
+  --background: var(--light-bg);
+  --border-radius: 12px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-family: 'Poppins-light300', sans-serif;
+}
+
+.secondary-button {
+  --background: var(--secondary-gradient);
+  --box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+  margin-top: 15px;
+}
+
+.secondary-button:hover {
+  --box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+}
+
+// Events Container
+.events-container {
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.modern-event-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.modern-event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.event-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 20px;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.event-creator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.creator-icon {
+  font-size: 20px;
+  color: #667eea;
+  margin-right: 8px;
+}
+
+.creator-name {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 14px;
+  color: var(--medium-text);
+  margin: 0;
+}
+
+.event-title {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 18px;
+  color: var(--dark-text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.event-content {
+  padding: 20px;
+}
+
+.event-description {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 14px;
+  color: var(--medium-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.event-actions {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-button {
+  --background: var(--primary-gradient);
+  --border-radius: 12px;
+  height: 40px;
+  font-size: 14px;
+  --box-shadow: var(--button-shadow);
+}
+
+.view-button:hover {
+  --box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+}
+
+// Empty State
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--light-text);
+}
+
+.empty-icon {
+  font-size: 64px;
+  color: var(--light-text);
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 20px;
+  color: var(--medium-text);
+  margin: 0 0 10px 0;
+}
+
+.empty-state p {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+// Floating Action Button
+.modern-fab {
+  --background: var(--primary-gradient);
+  --box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  --border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s ease;
+}
+
+.modern-fab:hover {
+  --box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+  transform: scale(1.1);
+}
+
+.modern-fab ion-icon {
+  font-size: 24px;
+  color: var(--white);
+}
+
+// Button Container
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .modern-event-card {
+    margin-bottom: 15px;
+  }
+  
+  .event-header {
+    padding: 15px;
+  }
+  
+  .event-content {
+    padding: 15px;
+  }
+  
+  .event-actions {
+    padding: 0 15px 15px 15px;
+  }
+  
+  .event-title {
+    font-size: 16px;
+  }
+  
+  .event-description {
+    font-size: 13px;
+  }
+  
+  .modern-fab {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .modern-fab ion-icon {
+    font-size: 22px;
+  }
+}
+
+// Animation for cards
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Stagger animation for multiple cards
+.modern-event-card:nth-child(1) { animation-delay: 0.1s; }
+.modern-event-card:nth-child(2) { animation-delay: 0.2s; }
+.modern-event-card:nth-child(3) { animation-delay: 0.3s; }
+.modern-event-card:nth-child(4) { animation-delay: 0.4s; }
+.modern-event-card:nth-child(5) { animation-delay: 0.5s; }

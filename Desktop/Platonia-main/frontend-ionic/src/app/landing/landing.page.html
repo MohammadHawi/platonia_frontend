@@ -1,0 +1,79 @@
+<ion-content>
+  <!-- Decorative background elements -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  <div class="decorative-circle circle-3"></div>
+
+  <!-- Modern Header -->
+  <div class="modern-header">
+    <h1>Platonia</h1>
+    <h2>Find The Perfect Hang-out</h2>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="modern-card filter-section">
+    <ion-item class="modern-input">
+      <ion-label position="stacked">Choose Category</ion-label>
+      <ion-select 
+        placeholder="Select a category" 
+        [(ngModel)]="selectedCategory" 
+        (ionChange)="getFeed()"
+        class="modern-select">
+        <ion-select-option 
+          *ngFor="let category of categories" 
+          [value]="'?category_id=' + category.id">
+          {{ category.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="button-container">
+      <ion-button 
+        class="modern-button secondary-button" 
+        (click)="onClickHandler()">
+        <ion-icon name="star-outline" slot="start"></ion-icon>
+        Suggested Events
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Events List -->
+  <div class="events-container">
+    <ion-card class="modern-event-card" *ngFor="let event of events">
+      <ion-card-header class="event-header">
+        <div class="event-creator">
+          <ion-icon name="person-circle-outline" class="creator-icon"></ion-icon>
+          <ion-card-subtitle class="creator-name">{{ event.planner_name }}</ion-card-subtitle>
+        </div>
+        <ion-card-title class="event-title">{{ event.event_topic }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="event-content">
+        <p class="event-description">{{ event.event_description }}</p>
+      </ion-card-content>
+      
+      <div class="event-actions">
+        <ion-button 
+          class="modern-button view-button" 
+          (click)="go(event.id)">
+          <ion-icon name="eye-outline" slot="start"></ion-icon>
+          View Details
+        </ion-button>
+      </div>
+    </ion-card>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="events.length === 0">
+      <ion-icon name="calendar-outline" class="empty-icon"></ion-icon>
+      <h3>No Events Found</h3>
+      <p>Try selecting a different category or check out suggested events.</p>
+    </div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button class="modern-fab" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

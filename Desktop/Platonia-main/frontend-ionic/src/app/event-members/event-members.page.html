@@ -1,0 +1,46 @@
+<ion-content>
+
+  <div class="pink">
+    <ion-fab-button (click)="go()" size="small" color="dark" style="margin-left: -10px; margin-top: -5px;">
+      <ion-icon name="close-circle-outline" size="large"></ion-icon>
+    </ion-fab-button>
+
+  </div>
+
+
+  <h2>Platonia</h2>
+
+  <div class="green"></div>
+
+  <h5>Event Members</h5>
+
+  <!-- Empty state -->
+  <div *ngIf="members.length === 0" style="text-align: center; padding: 20px;">
+    <ion-icon name="people-outline" style="font-size: 48px; color: #ccc;"></ion-icon>
+    <p>No members found for this event</p>
+  </div>
+
+  <!-- Members list -->
+  <div *ngFor="let member of members">
+  <ion-item lines="none">
+    <ion-icon name="person-outline" style="font-size:27px;"></ion-icon>
+    <ion-label class="labels, primarylabel">{{member.name}}</ion-label>
+    <ion-label class="primarylabel" style="margin-left: -40px;"></ion-label>
+    <!-- Only show remove button if user is event creator and not removing themselves -->
+    <ion-button 
+      *ngIf="isEventCreator && member.user_id != user_id && member.user_id != eventDetails?.user_id" 
+      (click)="removeMember(member.user_id, member.event_id)" 
+      class="card-button" 
+      color="danger"
+      size="small">
+      Remove
+    </ion-button>
+    <!-- Show creator badge for event creator -->
+    <ion-badge *ngIf="member.user_id == eventDetails?.user_id" color="primary" style="margin-left: 10px;">
+      Creator
+    </ion-badge>
+  </ion-item>
+</div>
+
+
+</ion-content>

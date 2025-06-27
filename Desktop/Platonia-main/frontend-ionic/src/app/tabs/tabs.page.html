@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" class="modern-tab-bar">
+      <ion-tab-button tab="landing" class="modern-tab-button">
+        <ion-icon name="home-outline" class="tab-icon"></ion-icon>
+        <ion-label class="tab-label">Home</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="my-activity" class="modern-tab-button">
+        <ion-icon name="cafe-outline" class="tab-icon"></ion-icon>
+        <ion-label class="tab-label">My Activity</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="dashboard" class="modern-tab-button">
+        <ion-icon name="analytics" class="tab-icon"></ion-icon>
+        <ion-label class="tab-label">Dashboard</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="profile" class="modern-tab-button">
+        <ion-icon name="person-circle-outline" class="tab-icon"></ion-icon>
+        <ion-label class="tab-label">Profile</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button class="modern-tab-button logout-button" (click)="onClick()">
+        <ion-icon name="log-out-outline" class="tab-icon"></ion-icon>
+        <ion-label class="tab-label">Logout</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

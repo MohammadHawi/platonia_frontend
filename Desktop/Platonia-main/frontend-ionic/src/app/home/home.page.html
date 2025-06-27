@@ -1,0 +1,66 @@
+<ion-content>
+  <!-- Decorative background elements -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
+  <div class="decorative-circle circle-3"></div>
+
+  <!-- Modern Header -->
+  <div class="modern-header">
+    <h1>Platonia</h1>
+    <h2>Welcome Back</h2>
+    <p class="header-subtitle">Sign in to your account</p>
+  </div>
+
+  <!-- Login Form -->
+  <div class="modern-form">
+    <form #user="ngForm" (ngSubmit)="onClick(user)">
+      <ion-item class="modern-input">
+        <ion-label position="stacked" class="form-label">
+          <ion-icon name="mail-outline" class="label-icon"></ion-icon>
+          Email Address
+        </ion-label>
+        <ion-input 
+          ngModel 
+          class="form-input" 
+          type="email" 
+          name="email" 
+          placeholder="Enter your email"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="modern-input">
+        <ion-label position="stacked" class="form-label">
+          <ion-icon name="lock-closed-outline" class="label-icon"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input 
+          ngModel 
+          class="form-input" 
+          type="password" 
+          name="password" 
+          placeholder="Enter your password"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <div class="form-actions">
+        <ion-button 
+          expand="block" 
+          type="submit" 
+          class="modern-button login-button"
+          [disabled]="!user.valid">
+          <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          Sign In
+        </ion-button>
+      </div>
+    </form>
+
+    <div class="register-link">
+      <p class="register-text">
+        Don't have an account? 
+        <a class="register-anchor" (click)="go()">Register Here</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

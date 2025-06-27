@@ -1,0 +1,104 @@
+.modern-tab-bar {
+  --background: var(--white);
+  --border: none;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 10px 0;
+}
+
+.modern-tab-button {
+  --color: var(--light-text);
+  --color-selected: #667eea;
+  --background: transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  transition: width 0.3s ease;
+  border-radius: 0 0 3px 3px;
+}
+
+.modern-tab-button.tab-selected::before {
+  width: 60%;
+}
+
+.modern-tab-button:hover {
+  --color: #667eea;
+  transform: translateY(-2px);
+}
+
+.tab-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.modern-tab-button.tab-selected .tab-icon {
+  transform: scale(1.1);
+  color: #667eea;
+}
+
+.tab-label {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 11px;
+  margin-top: 4px;
+  transition: all 0.3s ease;
+}
+
+.logout-button {
+  --color: var(--danger-color);
+  --color-selected: var(--danger-color);
+}
+
+.logout-button:hover {
+  --color: #c82333;
+}
+
+.logout-button .tab-icon {
+  color: var(--danger-color);
+}
+
+// Animation for tab selection
+@keyframes tabPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modern-tab-button.tab-selected {
+  animation: tabPulse 0.3s ease;
+}
+
+// Responsive design
+@media (max-width: 480px) {
+  .tab-label {
+    font-size: 10px;
+  }
+  
+  .tab-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .modern-tab-bar {
+    padding: 8px 0;
+  }
+}

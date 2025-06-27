@@ -1,0 +1,126 @@
+ion-content{
+  --overflow: hidden;
+}
+
+.pink{
+  background-color: #C058E4;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  padding: 50px;
+  margin-left: -20px;
+  margin-top:-35px;
+  float: left;
+
+}
+.grey{
+  background-color: #C4C4C4;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  padding: 70px;
+  margin-left: auto;
+  margin-right: -100px;
+
+
+
+}
+
+.blue{
+  background-color: #17A2F0;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  padding: 80px;
+  margin-left: -60px;
+   margin-top: -10px;
+  float: left;
+
+}
+
+.green{
+  background-color: #56B570;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  padding: 70px;
+  margin-left: auto;
+  margin-right: -70px;
+  margin-top: -40px;
+
+}
+
+h2{
+  font-family: Playball;
+  font-size: 30px;
+  margin-left: 7px;
+  text-align: center;
+  float: left;
+
+
+}
+
+h5{
+  font-family: Poppins-SemiBold;
+  text-align: center;
+  margin-top: -20px;
+  font-size: 15px;
+}
+
+.labels{
+    margin-left: 25px;
+}
+
+.primarylabel{
+    font-family: Poppins-light300;
+    font-size: 15px;
+}
+.secondarylabel{
+  font-family: Poppins-light300;
+  font-size: 13px;
+}
+ion-item{
+    margin-top: -3px;
+}
+
+.div-des{
+  width: 200px;
+  margin-left: 30px;
+  float: left;
+
+}
+
+ion-button{
+    --background: #5D5FEF;
+    font-size: 12px;
+    --border-radius: 12px;
+    margin-left: 90px;
+
+
+}
+.scroll{
+    width: 240px;
+    height: 90px;
+
+    overflow-y: scroll;
+}
+.center{
+  display: flex;
+  align-content: center;
+
+}
+.centeroid{
+margin-right:110px ;
+margin-top: 4px;
+float: right;
+
+}
+
+@font-face { font-family: Playball;
+  src: url('../../assets/fonts/Playball-Regular.ttf'); }
+
+@font-face { font-family: Poppins-SemiBold;
+  src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
+
+  @font-face { font-family: Poppins-light300;
+    src: url('../../assets/fonts/Poppins-Light.ttf'); }

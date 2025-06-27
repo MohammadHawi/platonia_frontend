@@ -1,0 +1,305 @@
+.pink{
+  background-color: #C058E4;
+  width: 90px;
+  height: 90px;
+  border-radius: 90px;
+  padding: 90px;
+  margin:-20px;
+  float: left;
+}
+.grey{
+  background-color: #C4C4C4;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  padding: 70px;
+  margin-left: auto;
+  margin-right: -25px;
+  margin-top: -25px;
+
+}
+
+.blue{
+  background-color: #17A2F0;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  padding: 80px;
+  margin-left: auto;
+  margin-right: -30px;
+}
+h2{
+  font-family: Playball;
+  font-size: 50px;
+  margin-top: -25px;
+  margin-left: 20px;
+  
+}
+
+h5{
+  font-family: Poppins-SemiBold;
+  margin-left: 20px;
+  margin-top: -5px;
+}
+
+p{
+font-family: Poppins-light300;
+margin-left: 20px;
+margin-top: -5px;
+font-size: 10px;
+color: #B9B9B9;
+
+}
+.input{
+  background-color: #F6F6F6;
+  border-radius: 5px;
+  margin-top: 6px;
+  --padding-start:8px;
+  font-family: Poppins-light300;
+}
+
+.label{
+font-family: Poppins-light300;
+font-size:14px;
+}
+ .sign{
+  margin-top: 7px;
+   
+ }
+  ion-button{
+    --background: #56B570;
+    text-transform: none;
+    font-family: Poppins-light300;
+    font-size: 10px;
+    height: 30px;
+    width: 250px;
+    margin: auto;
+    
+  }
+
+  .par{
+    margin-top: 8px;
+    color: black;
+    font-weight: bold;
+  }
+  a{
+    text-decoration: none;
+  }
+.my-custom-class{
+  font-family: Poppins-light300;  
+
+}
+
+@font-face { font-family: Playball; 
+  src: url('../../assets/fonts/Playball-Regular.ttf'); }
+
+@font-face { font-family: Poppins-SemiBold; 
+  src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
+
+  @font-face { font-family: Poppins-light300; 
+    src: url('../../assets/fonts/Poppins-Light.ttf'); }
+
+// Decorative circles
+.circle-1 {
+  width: 150px;
+  height: 150px;
+  top: 5%;
+  left: -75px;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.circle-2 {
+  width: 100px;
+  height: 100px;
+  top: 15%;
+  right: -50px;
+  background: rgba(118, 75, 162, 0.1);
+}
+
+.circle-3 {
+  width: 120px;
+  height: 120px;
+  bottom: 20%;
+  left: 15%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+// Header Subtitle
+.header-subtitle {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0 0 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// Form Styles
+.form-label {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 14px;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.label-icon {
+  font-size: 18px;
+  color: #667eea;
+  margin-right: 8px;
+}
+
+.form-input {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 16px;
+  color: var(--dark-text);
+  --placeholder-color: var(--light-text);
+  --placeholder-opacity: 0.7;
+}
+
+.form-actions {
+  margin-top: 30px;
+}
+
+.login-button {
+  --background: var(--primary-gradient);
+  --box-shadow: var(--button-shadow);
+  height: 50px;
+  font-size: 16px;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  --border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  --box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+  transform: translateY(-2px);
+}
+
+.login-button:disabled {
+  --background: var(--light-text);
+  --box-shadow: none;
+  opacity: 0.6;
+}
+
+// Register Link
+.register-link {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f3f4;
+}
+
+.register-text {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 14px;
+  color: var(--medium-text);
+  margin: 0;
+}
+
+.register-anchor {
+  color: #667eea;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.register-anchor::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #667eea;
+  transition: width 0.3s ease;
+}
+
+.register-anchor:hover::after {
+  width: 100%;
+}
+
+.register-anchor:hover {
+  color: #5a67d8;
+}
+
+// Form validation styles
+.modern-input.ion-invalid {
+  border-color: var(--danger-color);
+}
+
+.modern-input.ion-valid {
+  border-color: var(--success-color);
+}
+
+// Loading state
+.login-button.loading {
+  --background: var(--light-text);
+  pointer-events: none;
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .modern-form {
+    margin: 15px;
+    padding: 20px;
+  }
+  
+  .header-subtitle {
+    font-size: 14px;
+  }
+  
+  .form-label {
+    font-size: 13px;
+  }
+  
+  .form-input {
+    font-size: 15px;
+  }
+  
+  .login-button {
+    height: 45px;
+    font-size: 15px;
+  }
+  
+  .register-text {
+    font-size: 13px;
+  }
+}
+
+// Animation for form elements
+.modern-form {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.modern-input {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.modern-input:nth-child(1) { animation-delay: 0.1s; }
+.modern-input:nth-child(2) { animation-delay: 0.2s; }
+
+// Focus effects
+.modern-input:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+// Success animation
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.login-button.success {
+  animation: successPulse 0.3s ease;
+}

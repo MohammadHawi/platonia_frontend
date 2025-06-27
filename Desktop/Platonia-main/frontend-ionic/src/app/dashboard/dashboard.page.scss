@@ -1,0 +1,476 @@
+ion-content{
+  --overflow: hidden;
+}
+ion-item{
+  --display: flex;
+  --align-items: center;
+}
+.pink{
+  background-color: #C058E4;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  padding: 50px;
+  margin-left: -60px;
+  float: left;
+
+}
+.grey{
+  background-color: #C4C4C4;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  padding: 60px;
+  margin-left: -35px;
+  margin-top: -35px;
+  float: left;
+
+
+
+}
+
+.blue{
+  background-color: #17A2F0;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  padding: 80px;
+  margin-left: auto;
+  margin-right: -90px;
+  margin-top: -50px;
+
+}
+
+.green{
+  background-color: #56B570;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  padding: 70px;
+  margin-left: auto;
+  margin-right: -60px;
+
+}
+
+h2{
+  font-family: Playball;
+  font-size: 30px;
+  margin-left: 10px;
+  float: left;
+}
+
+h5{
+  font-family: Poppins-SemiBold;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+
+.primarylabel{
+  font-family: Poppins-light300;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.secondarylabel{
+  font-family: Poppins-light300;
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: -80px;
+}
+
+.divvy{
+
+  justify-content: center;
+  display: flex;
+  margin-top: -25px;
+}
+
+.div-r{
+  width: 240px;
+  height: 90px;
+  overflow-y: scroll;
+  font-family: Poppins-light300;
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: 0px;
+  margin-top: 8px;
+}
+
+ion-button{
+  --background: #5D5FEF;
+  font-size: 12px;
+  --border-radius: 12px;
+  margin-left: 90px;
+  margin-top: 4px;
+
+}
+
+// Dashboard specific styles
+.event-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 8px;
+}
+
+.event-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.event-details {
+  color: #666;
+  margin-top: 4px;
+}
+
+ion-card {
+  margin: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+ion-card-title {
+  font-family: Poppins-SemiBold;
+  color: #333;
+}
+
+ion-card-content p {
+  font-family: Poppins-light300;
+  margin: 8px 0;
+}
+
+@font-face { font-family: Playball;
+  src: url('../../assets/fonts/Playball-Regular.ttf'); }
+
+@font-face { font-family: Poppins-SemiBold;
+  src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
+
+  @font-face { font-family: Poppins-light300;
+    src: url('../../assets/fonts/Poppins-Light.ttf'); }
+
+// Decorative circles
+.circle-1 {
+  width: 100px;
+  height: 100px;
+  top: 12%;
+  left: -50px;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.circle-2 {
+  width: 80px;
+  height: 80px;
+  top: 25%;
+  right: -40px;
+  background: rgba(118, 75, 162, 0.1);
+}
+
+.circle-3 {
+  width: 120px;
+  height: 120px;
+  bottom: 15%;
+  left: 8%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+// Header Subtitle
+.header-subtitle {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0 0 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// Stats Container
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 0 20px;
+  margin-top: -20px;
+  z-index: 10;
+  position: relative;
+}
+
+.stats-card {
+  padding: 20px;
+  text-align: center;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.stat-icon ion-icon {
+  font-size: 24px;
+  color: var(--white);
+}
+
+.stat-number {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 28px;
+  color: var(--dark-text);
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 14px;
+  color: var(--medium-text);
+  margin: 0;
+}
+
+// Events Sections
+.events-section {
+  margin: 20px;
+  padding: 25px;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  animation: slideInUp 0.6s ease-out;
+}
+
+.events-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f1f3f4;
+}
+
+.section-icon {
+  font-size: 24px;
+  color: #667eea;
+  margin-right: 12px;
+}
+
+.section-title {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 20px;
+  color: var(--dark-text);
+  margin: 0;
+}
+
+// Events List
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: var(--light-bg);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.event-item:hover {
+  background: #f8f9fa;
+  border-color: #667eea;
+  transform: translateX(5px);
+}
+
+.event-rank {
+  margin-right: 15px;
+}
+
+.rank-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.event-info {
+  flex: 1;
+}
+
+.event-title {
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 16px;
+  color: var(--dark-text);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.event-meta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.event-members,
+.event-date,
+.event-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 12px;
+  color: var(--medium-text);
+}
+
+.event-members ion-icon,
+.event-date ion-icon,
+.event-time ion-icon {
+  font-size: 14px;
+  color: #667eea;
+}
+
+.event-status {
+  margin-left: auto;
+}
+
+.upcoming-badge {
+  --background: var(--success-color);
+  --color: var(--white);
+  --border-radius: 20px;
+  font-family: 'Poppins-SemiBold', sans-serif;
+  font-size: 11px;
+  padding: 5px 12px;
+}
+
+// Empty State
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--light-text);
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: var(--light-text);
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  font-family: 'Poppins-light300', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  color: var(--medium-text);
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 0 15px;
+  }
+  
+  .stats-card {
+    padding: 15px;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+  }
+  
+  .stat-label {
+    font-size: 13px;
+  }
+  
+  .events-section {
+    margin: 15px;
+    padding: 20px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+  
+  .event-item {
+    padding: 12px;
+  }
+  
+  .event-title {
+    font-size: 14px;
+  }
+  
+  .event-meta {
+    gap: 10px;
+  }
+  
+  .event-members,
+  .event-date,
+  .event-time {
+    font-size: 11px;
+  }
+}
+
+// Animation for sections
+.events-section:nth-child(1) { animation-delay: 0.1s; }
+.events-section:nth-child(2) { animation-delay: 0.2s; }
+
+// Hover effects for stats cards
+.stats-card:hover .stat-icon {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+// Loading state
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+// Success animation for stats
+@keyframes statPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.stats-card.updated {
+  animation: statPulse 0.5s ease;
+}

@@ -1,0 +1,153 @@
+ion-content{
+    --overflow: hidden;
+}
+
+.pink{
+    background-color: #C058E4;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: -80px;
+
+  }
+  .grey{
+    background-color: #C4C4C4;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    padding: 70px;
+    float: left;
+    margin-left: -60px;
+
+  
+  }
+  
+  .blue{
+    background-color: #17A2F0;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    padding: 80px;
+    margin-left: auto;
+    margin-right: -90px;
+  }
+
+  .green{
+    background-color: #56B570;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    padding: 70px;
+    margin-left: -70px;
+    margin-top: -40px;
+    float: left;
+    margin-right: 25px;
+    
+  }
+
+  h2{
+    font-family: Playball;
+    font-size: 30px;
+    margin-left: 5px;
+    text-align:justify;
+  }
+
+  h5{
+    font-family: Poppins-SemiBold;
+    margin-left: 5px;
+    font-size: 15px;
+  }
+  .primarylabel{
+    font-family: Poppins-light300;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-right: 3px;
+}
+
+.deslabel{
+margin-left: 16px;
+}
+
+.secondarylabel{
+    font-family: Poppins-light300;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.divvy{
+width: 150px;
+margin-top: -60px;
+}
+
+.input-r{
+    margin-left: 25px;
+    width: 235px;
+    height: 100px;
+    font-family:Poppins-light300 ;
+    border-radius: 10px;
+    font-size: 12px;
+    --padding-start: 20px;
+    resize: none;
+    background-color: #e6e6e6;
+    
+}
+
+ion-button{
+    --background: #5D5FEF;
+    font-size: 12px;
+    --border-radius: 12px;
+    margin-left: 40px;
+     margin-top: 20px;
+    float: left;
+}
+
+.short-input{
+  width: 165px;
+  height:25px;
+  padding-inline-start: 8px;
+  font-family:Poppins-light300 ;
+  border-radius: 10px;
+  border:#e6e6e6 ;
+  font-size: 12px;
+  background-color: #e6e6e6;
+  
+
+  
+}
+
+.small-input{
+    width: 60px;
+    font-family:Poppins-light300 ;
+    border-radius: 10px;
+    font-size: 14px;
+    padding-inline-start: 8px;
+    margin-left: 20px;
+    background-color: #e6e6e6;
+    border:#e6e6e6 ;
+}
+
+.floater{
+    float: left;
+    display: flex;
+    padding-left: 16px;
+    
+}
+
+.center{
+  display: flex;
+  align-content: center;
+  float: left;
+  // margin-left: 40px;
+  // margin-top: -6px;
+}
+  @font-face { font-family: Playball; 
+    src: url('../../assets/fonts/Playball-Regular.ttf'); }
+  
+  @font-face { font-family: Poppins-SemiBold; 
+    src: url('../../assets/fonts/Poppins-SemiBold.ttf'); }
+  
+    @font-face { font-family: Poppins-light300; 
+      src: url('../../assets/fonts/Poppins-Light.ttf'); }
